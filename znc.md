@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: bnc
 title: Bouncer hosting
 permalink: /znc/
 order: 10
