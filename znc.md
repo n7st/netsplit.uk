@@ -1,6 +1,6 @@
 ---
 layout: bnc
-title: Bouncer hosting
+title: Bouncer Hosting
 permalink: /znc/
 order: 10
 ---

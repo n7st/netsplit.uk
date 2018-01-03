@@ -1,5 +1,17 @@
 // Overwrite variables before loading Bootstrap's defaults
 
+// Colours
+$lgrey:  #e6e6e6;
+$lmgrey: #bbbbbb;
+$dgrey:  #212121;
+
+$brand-green: #337a34;
+
+// Layouts
+$borderrad: 0;
+$toppad:    20px;
+$topmar:    $toppad / 2;
+
 // Load Bootstrap's defaults
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
