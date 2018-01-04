@@ -23,21 +23,7 @@ layout: default
         <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
         {% for post in site.posts %}
             {% if post.tags contains "bnc" %}
-                <div class="row post-row">
-                    <div class="col-md-2 post-date">
-                        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-                        {{ post.date | date: date_format }}
-                    </div>
-                    <div class="col-md-10">
-                        <h4><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h4>
-                        {% if post.excerpt %}
-                            <p>
-                                {{ post.content | strip_html | truncatewords: 75 }}
-                                <a class="secondary-text" href="{{ post.url | relative_url }}">(more)</a>
-                            </p>
-                        {% endif %}
-                    </div>
-                </div>
+                {% include post.html post = post %}
             {% endif %}
         {% endfor %}
     {% endif %}
