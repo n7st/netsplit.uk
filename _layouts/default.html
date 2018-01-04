@@ -57,21 +57,40 @@
                 <div id="footer" class="row">
                     <div class="col">
                         <ul class="list-group">
+                            {% if site.github_username%}
+                                <li class="list-group-item justify-content-between">
+                                    <i class="fa fa-github" aria-hidden="true"></i>
+                                    <a
+                                        href="https://github.com/{{ site.github_username | escape }}"
+                                    >
+                                        {{ site.github_username | escape }}
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            {% if site.email %}
+                                <li class="list-group-item justify-content-between">
+                                    <i class="fa fa-envelope-open" aria-hidden="true"></i>
+                                    <a href="mailto:{{ site.email | escape }}">{{ site.email | escape }}</a>
+                                </li>
+                            {% endif %}
+
                             <li class="list-group-item justify-content-between">
-                                <i class="fa fa-github" aria-hidden="true"></i>
-                                n7st
-                            </li>
-                            <li class="list-group-item justify-content-between">
-                                <i class="fa fa-envelope-open" aria-hidden="true"></i>
-                                mike@netsplit.org.uk
+                                <i class="fa fa-rss"></i>
+                                <a href="{{ "/feed.xml" | relative_url }}">Subscribe via RSS</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col">
-                        Test 2
                     </div>
                     <div class="col">
-                        Test 3
+                        <ul class="list-group">
+                            {% if site.description %}
+                                <li class="list-group-item justify-content-between">
+                                    {{ site.description | escape }}
+                                </li>
+                            {% endif %}
+                        </ul>
                     </div>
                 </div><!--/ .row -->
             </div><!--/ .container -->

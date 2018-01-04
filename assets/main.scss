@@ -12,6 +12,7 @@ body {
 }
 
 nav {
+    background:     white;
     border-bottom:  1px solid $lgrey;
     border-top:     5px solid $brand-green;
     border-radius:  $borderrad;
@@ -38,12 +39,25 @@ h4 {
     line-height: 1.2em;
 }
 
-.navbar-brand, .nav-link {
+a, .btn-nodec {
     color: $dgrey;
 }
 
-a:hover, a:hover {
+a:hover, .btn-nodec:hover {
     color: $brand-green;
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn-nodec {
+    display: inline;
+    padding: 0;
+}
+
+.secondary-text {
+    color: $lmgrey;
 }
 
 div#page_content {
@@ -69,4 +83,21 @@ div#footer_content {
     i {
         width: 20px;
     }
+}
+
+.post-row {
+    border-bottom: 1px solid $lgrey;
+    padding-top:   20px;
+}
+
+.post-row:first-child {
+    padding-top: 0;
+}
+
+.post-row:last-child {
+    border-bottom: 0;
+}
+
+.post-date {
+    text-align: right;
 }

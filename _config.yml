@@ -29,6 +29,7 @@ theme: minima
 plugins:
     - jekyll-feed
     - jekyll-font-awesome-sass
+    - jekyll-paginate
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -50,3 +51,6 @@ sass:
 
 font-awesome:
       assets: true
+
+#paginate: 5
+

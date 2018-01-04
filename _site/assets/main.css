@@ -8682,6 +8682,7 @@ body {
   font-family: 'Domine', serif; }
 
 nav {
+  background: white;
   border-bottom: 1px solid #e6e6e6;
   border-top: 5px solid #337a34;
   border-radius: 0;
@@ -8703,11 +8704,21 @@ h4 {
   font-size: 1.1em;
   line-height: 1.2em; }
 
-.navbar-brand, .nav-link {
+a, .btn-nodec {
   color: #212121; }
 
-a:hover, a:hover {
+a:hover, .btn-nodec:hover {
   color: #337a34; }
+
+button {
+  cursor: pointer; }
+
+.btn-nodec {
+  display: inline;
+  padding: 0; }
+
+.secondary-text {
+  color: #bbbbbb; }
 
 div#page_content {
   margin-top: 80px; }
@@ -8724,3 +8735,16 @@ div#footer_content {
   padding: 3px; }
 .list-group i {
   width: 20px; }
+
+.post-row {
+  border-bottom: 1px solid #e6e6e6;
+  padding-top: 20px; }
+
+.post-row:first-child {
+  padding-top: 0; }
+
+.post-row:last-child {
+  border-bottom: 0; }
+
+.post-date {
+  text-align: right; }
