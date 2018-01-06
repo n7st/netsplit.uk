@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Interglow Server Launch"
+title:  "Interglow BNC Server Launch"
 date:   2018-01-01 14:47:28 +0000
 categories: bnc
 tags: bnc
 ---
 
-In order to replace the now-defunct FreeBNC.co.uk's (shut down at the beginning
-of this year) Interglow sBNC server, I have set up a new virtual server running
+In order to replace the now-defunct (shut down at the beginning of 2018)
+FreeBNC.co.uk's Interglow sBNC server, I have set up a new virtual server running
 [ZNC](https://znc.in). There is no formal application process and the bouncers
 may be used on any network (where permitted by the IRC network itself).
 
