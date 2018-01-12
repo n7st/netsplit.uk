@@ -10,5 +10,5 @@ Source control for my personal website built with Jekyll.
 
 ## TODO
 
-* Set up CI.
+* Set up CI
 
