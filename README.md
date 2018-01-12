@@ -8,3 +8,7 @@ Source control for my personal website built with Jekyll.
 * yarn install
 * bundle exec jekyll serve
 
+## TODO
+
+* Set up CI
+
