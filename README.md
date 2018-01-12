@@ -1,6 +1,6 @@
 # netsplit.uk
 
-Source control for my personal website.
+Source control for my personal website built with Jekyll.
 
 ## Usage
 
