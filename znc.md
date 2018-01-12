@@ -12,6 +12,8 @@ another location, please message me as above.
 
 Available locations for sponsored servers:
 
+Test
+
 * Amsterdam, Netherlands
 * Paris, France
 * Frankfurt, Germany
