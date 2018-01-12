@@ -5,8 +5,6 @@ permalink: /znc/
 order: 10
 ---
 
-Test
-
 Contact me on [SwiftIRC](irc://irc.swiftirc.net) or [Snoonet](irc://irc.snoonet.org)
 under the nick "Mike" for access to my private BNC server. Presently, the only server
 is in London, United Kingdom. If you would like to discuss sponsoring a server in
