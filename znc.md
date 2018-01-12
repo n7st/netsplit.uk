@@ -10,6 +10,8 @@ under the nick "Mike" for access to my private BNC server. Presently, the only s
 is in London, United Kingdom. If you would like to discuss sponsoring a server in
 another location, please message me as above.
 
+Test.
+
 Available locations for sponsored servers:
 
 * Amsterdam, Netherlands
