@@ -21,6 +21,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  n7st
 
+# Should the description be displayed in the page's footer?
+display_description: false
+
 # Build settings
 markdown: kramdown
 theme: minima

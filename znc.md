@@ -10,6 +10,24 @@ under the nick "Mike" for access to my private BNC server. Presently, the only s
 is in London, United Kingdom. If you would like to discuss sponsoring a server in
 another location, please message me as above.
 
+Available locations for sponsored servers:
+
+* Amsterdam, Netherlands
+* Paris, France
+* Frankfurt, Germany
+* London, United Kingdom
+* Atlanta, USA
+* Dallas, USA
+* Seattle, USA
+* Chicago, USA
+* Los Angeles, USA
+* Miami, USA
+* New York (NJ), USA
+* Silicon Valley, USA
+* Tokyo, Japan
+* Singapore
+* Sydney, Australia
+
 The service runs on donations.
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">

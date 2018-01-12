@@ -83,7 +83,7 @@
                     </div>
                     <div class="col-md-8">
                         <ul class="list-group">
-                            {% if site.description %}
+                            {% if site.description and site.display_description %}
                                 <li class="list-group-item justify-content-between">
                                     {{ site.description | escape }}
                                 </li>
