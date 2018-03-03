@@ -8,7 +8,9 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "sass", "3.4"
+gem "sass"
+
+gem "minima"
 
 gem "jekyll", "3.6.2"
 
