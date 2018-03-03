@@ -51,8 +51,7 @@ GEM
     rouge (2.2.1)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
-    sass (3.5.5)
-      sass-listen (>= 4.0.0)
+    sass (3.4.0)
     sass-listen (4.0.0)
       rb-inotify (>= 0.9.7, >= 0.9)
 
@@ -60,13 +59,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 3.6.2)
+  jekyll (= 3.6.2)
   jekyll-feed (~> 0.6)
   jekyll-font-awesome-sass
   jekyll-paginate
   jekyll-sass-converter (= 1.5.2)
-  minima (~> 2.0)
-  sass (~> 3.4)
+  minima (= 2.3.0)
+  sass (= 3.4)
   sass-listen (~> 4.0.0)
 
 BUNDLED WITH
