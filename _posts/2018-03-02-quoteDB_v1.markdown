@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "quoteDB v1.0.0 Release"
+date:   2018-03-02 21:29:44
+
+categories: projects irc
+tags: quote irc golang docker
+---
+
+[quoteDB v1.0.0 is now available on GitHub](https://github.com/n7st/quoteDB/releases/tag/v1.0.0).
+This release provides the first working version of quoteDB, allowing IRC users
+to add quotes directly from their channel into a [Bash](http://bash.org)-like
+quotes database. The program can be self-hosted and run in a [Docker](https://www.docker.com)
+container. Presently, the web UI is read-only, but I'm working on moderation
+features for the next release.
+
+I recommend installation using [Docker Compose](https://docs.docker.com/compose/).
+Please raise any issues or bugs on the [GitHub repository](https://github.com/n7st/quoteDB).
+
+## Technical details
+
+- Written in Golang
+- Uses an SQLite3 database
+- Basic web UI using Bootstrap v3.3.7 and jQuery
+
+## Limitations
+
+- Quote moderation must be done directly in the database
+
+## Future development
+
+- Quote moderation features
+- Other input sources (Slack, Discord)
+
