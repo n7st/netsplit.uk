@@ -15,7 +15,7 @@ gem "minima", "~> 2.0"
 
 gem "sass", "~> 3.4"
 
-gem "jekyll-sass-converter"
+gem "jekyll-sass-converter", "1.5.2"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
@@ -25,9 +25,6 @@ gem "jekyll-sass-converter"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "sass-listen", "~> 4.0.0"
 gem 'jekyll-font-awesome-sass'
