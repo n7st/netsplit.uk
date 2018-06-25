@@ -3,7 +3,8 @@ image: ruby:2.3
 variables:
   JEKYLL_ENV: production
 
-before_install: gem install bundler
+before_install:
+  - gem install bundler
 
 before_script:
   - bundle install
