@@ -4,6 +4,7 @@ variables:
   JEKYLL_ENV: production
 
 before_script:
+  - sudo apt-get install rubygems
   - gem install bundler
   - bundle install
 
