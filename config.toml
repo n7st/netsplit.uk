@@ -1,0 +1,21 @@
+baseURL = "http://localhost:1313"
+languageCode = "en-gb"
+title = "Netsplit.uk"
+theme = "netsplit"
+
+Paginate = 5
+
+[menu]
+    [[menu.main]]
+    identifier = "about"
+    name = "About"
+    pre = ""
+    url = "/about/"
+    weight = -110
+
+    [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    pre = ""
+    url = "/contact/"
+    weight = -120

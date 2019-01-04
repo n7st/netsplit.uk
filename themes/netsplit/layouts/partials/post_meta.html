@@ -1,0 +1,45 @@
+{{ $baseUrl := .Site.BaseURL }}
+<ul>
+    <li>
+        Posted:
+        {{ with .Site.Params.dateFormat }}
+            {{ $.Date.Format . }}
+        {{ else }}
+            {{ .Date.Format "02 Jan 2006, 15:04" }}
+        {{ end }}
+    </li>
+    {{ if isset .Params "tags" }}
+        <li>
+            Tags:
+
+            {{ $count := len .Params.tags }}
+
+            {{ if gt $count 0 }}
+                <ul>
+                    {{ range $k, $v := .Params.tags }}
+                        <li>
+                            <a href="{{ $baseUrl }}tags/{{ . | urlize }}">{{ . }}</a>
+                            {{ if lt $k (sub $count 1) }}(first){{ end }}
+                        </li>
+                    {{ end }}
+                </ul>
+            {{ end }}
+        </li>
+    {{ end }}
+
+    {{ if isset .Params "authors" }}
+        {{ $count := len .Params.authors }}
+
+        {{ if gt $count 0 }}
+            <li>
+                {{ if eq 1 $count }}Author{{ else }}Authors{{ end }}:
+
+                <ul>
+                    {{ range $k, $v := .Params.authors }}
+                        <li><a href="{{ $baseUrl }}authors/{{ $v | urlize }}">{{ $v }}</a></li>
+                    {{ end }}
+                </ul>
+            </li>
+        {{ end }}
+    {{ end }}
+</ul>

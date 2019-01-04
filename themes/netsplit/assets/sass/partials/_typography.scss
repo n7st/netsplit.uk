@@ -1,0 +1,45 @@
+body {
+    font-family: 'Merriweather', sans-serif;
+}
+
+code {
+    font-family: 'Fira Mono', monospace;
+}
+
+#site-title {
+    border-bottom:  1px solid $link-inactive;
+    font-weight:    bold;
+    font-size:      1.1em;
+    padding-bottom: $small-padding;
+}
+
+#sidebar-nav li, p {
+    line-height: 1.6em;
+}
+
+p {
+}
+
+a, a:hover {
+    color: $link-inactive;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h2 a {
+    border-radius: 2px;
+    padding:       $small-padding;
+}
+
+h2 a:hover {
+    background:      $light-grey;
+    text-decoration: none;
+}
+
+article {
+    p, footer {
+        padding: $small-padding;
+    }
+}
