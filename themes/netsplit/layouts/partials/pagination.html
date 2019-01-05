@@ -1,30 +1,36 @@
 {{ $paginator := .Paginator }}
 
 {{ if or ($paginator.HasPrev) ($paginator.HasNext) }}
-    {{ $prev := "Back" }}
+    {{ $prev := "Previous" }}
     {{ $next := "Next" }}
 
-    <nav class="pagination" role="pagination">
-        {{ if $paginator.HasPrev }}
-            <a href="{{ $paginator.Prev.URL }}">{{ $prev }}</a>
-        {{ else }}
-            {{ $prev }}
-        {{ end }}
-
+    <nav aria-label="Pagination tools" class="pagination-nav">
         <ul class="pagination">
+            <li class="page-item">
+                {{ if $paginator.HasPrev }}
+                    <a class="page-link" href="{{ $paginator.Prev.URL }}">{{ $prev }}</a>
+                {{ else }}
+                    <a class="page-link disabled">{{ $prev }}</a>
+                {{ end }}
+            </li>
+
             {{ range $paginator.Pagers }}
-                <li class="pagination__item{{ if eq . $paginator }} pagination__item--current{{ end }}">
-                    <a href="{{ .URL }}" class="pagination__link">
+                <li class="page-item{{ if eq . $paginator }} active{{ end }}">
+                    <a href="{{ .URL }}" class="page-link">
                         {{ .PageNumber }}
                     </a>
                 </li>
             {{ end }}
-        </ul>
 
-        {{ if $paginator.HasNext }}
-            <a href="{{ $paginator.Next.URL }}">{{ $next }}</a>
-        {{ else }}
-            {{ $next }}
-        {{ end }}
+            <li class="page-item">
+                {{ if $paginator.HasNext }}
+                    <a class="page-link" href="{{ $paginator.Next.URL }}">{{ $next }}</a>
+                {{ else }}
+                    <a class="page-link disabled">{{ $next }}</a>
+                {{ end }}
+            </li>
+        </ul>
     </nav>
+
+    <div class="clearfix"></div>
 {{ end }}
