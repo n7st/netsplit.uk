@@ -1,11 +1,15 @@
 {{ define "main" }}
-    <div class="header">
-        <h1>{{ .Title }}</h1>
-    </div>
+    <article>
+        <header>
+            <h1>{{ if lt (len .Title) 4 }}{{ upper .Title }}{{ else }}{{ .Title }}{{ end }}</h1>
+        </header>
 
-    <div class="content">
-        {{ range .Data.Pages }}
-            {{ .Render "summary" }}
-        {{ end }}
-    </div>
+        <section class="post-content">
+            {{ range .Data.Pages }}
+                {{ .Render "summary" }}
+            {{ end }}
+        </section>
+
+        <footer class="post-footer"></footer>
+    </article>
 {{ end }}
