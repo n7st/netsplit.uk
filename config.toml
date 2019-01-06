@@ -5,6 +5,10 @@ theme = "netsplit"
 
 Paginate = 5
 
+[taxonomies]
+author = "authors"
+tag    = "tags"
+
 [menu]
     [[menu.main]]
     identifier = "about"

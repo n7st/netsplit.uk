@@ -1,0 +1,31 @@
+{{ define "main" }}
+    <article>
+        <header>
+            <h1>{{ .Title }}</h1>
+
+            {{ if .Params.job_title }}
+                <p>{{ .Title }} is a {{ .Params.job_title }}.</p>
+            {{ end }}
+
+            {{ if or .Params.website .Params.gitlab }}
+                <ul>
+                    {{ if .Params.gitlab }}
+                        <li><i class="fa fa-gitlab"></i> Gitlab</li>
+                    {{ end }}
+
+                    {{ if .Params.website }}
+                        <li><i class="fa fa-globe"></i> Website</li>
+                    {{ end }}
+                </ul>
+            {{ end }}
+        </header>
+
+        <section class="post-content">
+            {{ range .Data.Pages }}
+                {{ .Render "summary" }}
+            {{ end }}
+        </section>
+
+        <footer class="post-footer"></footer>
+    </article>
+{{ end }}
