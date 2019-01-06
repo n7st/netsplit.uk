@@ -19,7 +19,6 @@
                     {{ range $k, $v := .Params.tags }}
                         <li>
                             <a href="{{ $baseUrl }}tags/{{ . | urlize }}">{{ . }}</a>
-                            {{ if lt $k (sub $count 1) }}(first){{ end }}
                         </li>
                     {{ end }}
                 </ul>

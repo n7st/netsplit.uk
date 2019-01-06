@@ -11,11 +11,18 @@ Paginate = 5
     name = "About"
     pre = ""
     url = "/about/"
-    weight = -110
+    weight = -120
+
+    [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    pre = ""
+    url = "/project/"
+    weight = -115
 
     [[menu.main]]
     identifier = "contact"
     name = "Contact"
     pre = ""
     url = "/contact/"
-    weight = -120
+    weight = -110

@@ -1,0 +1,16 @@
+<article>
+    <header>
+        <h1>{{ .Title }}</h1>
+        {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
+
+        {{ partial "post_meta.html" . }}
+    </header>
+
+    <section class="post-content">
+        {{ .Content }}
+    </section>
+
+    <footer class="post-footer">
+
+    </footer>
+</article>

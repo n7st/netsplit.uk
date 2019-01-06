@@ -1,0 +1,7 @@
+{{ define "main" }}
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "project")  }}
+
+    {{ range $paginator.Pages  }}
+        {{ .Render "summary"  }}
+    {{ end  }}
+{{ end }}
