@@ -1,28 +1,21 @@
 {{ $baseUrl := .Site.BaseURL }}
 
-<ul>
-    <li>
-        Posted:
-        {{ with .Site.Params.dateFormat }}
-            {{ $.Date.Format . }}
-        {{ else }}
-            {{ .Date.Format "02 Jan 2006, 15:04" }}
-        {{ end }}
-    </li>
-
+<p>
     {{ if isset .Params "authors" }}
         {{ $count := len .Params.authors }}
 
-        {{ if gt $count 0 }}
-            <li>
-                {{ if eq 1 $count }}Author{{ else }}Authors{{ end }}:
+        By {{/* delimit .Params.authors ", " " &amp; " */}}
 
-                <ul>
-                    {{ range $k, $v := .Params.authors }}
-                        <li><a href="{{ $baseUrl }}authors/{{ $v | urlize }}">{{ $v }}</a></li>
-                    {{ end }}
-                </ul>
-            </li>
+        {{ range $k, $v := .Params.authors }}
+            <a href="{{ $baseUrl }}authors/{{ $v | urlize }}">{{ $v }}</a>{{ if eq $k (sub $count 2) }} &amp; {{ else if lt $k (sub $count 2) }}, {{ end }}
         {{ end }}
     {{ end }}
-</ul>
+
+    {{ if isset .Params "date" }}
+        <span class="secondary-text">
+            <i class="fa fa-clock-o"></i>
+
+            {{ partial "date.html" . }}
+        </span>
+    {{ end }}
+</p>

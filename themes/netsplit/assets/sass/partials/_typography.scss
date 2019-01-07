@@ -44,11 +44,11 @@ h2 a:hover {
 
 article {
     p, footer {
-        padding: $small-padding;
+        padding-top: $small-padding;
     }
 }
 
-h1 > span, h2 > span, h3 > span {
+p > span, h1 > span, h2 > span, h3 > span {
     float: right;
 }
 
