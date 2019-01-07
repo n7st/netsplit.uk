@@ -17,6 +17,7 @@
 // selectively import icons we need from font-awesome
 // see: ../../node_modules/font-awesome/scss/_icons.scss
 .#{$fa-css-prefix}-gitlab:before { content: $fa-var-gitlab; }
+.#{$fa-css-prefix}-github:before { content: $fa-var-github; }
 .#{$fa-css-prefix}-globe:before { content: $fa-var-globe; }
 .#{$fa-css-prefix}-tag:before { content: $fa-var-tag; }
 .#{$fa-css-prefix}-folder:before { content: $fa-var-folder; }

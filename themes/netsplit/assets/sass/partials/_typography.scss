@@ -43,3 +43,11 @@ article {
         padding: $small-padding;
     }
 }
+
+h1 > span, h2 > span, h3 > span {
+    float: right;
+}
+
+span.secondary-text {
+    color: $link-inactive;
+}

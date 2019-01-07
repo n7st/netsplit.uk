@@ -1,24 +1,60 @@
 {{ define "main" }}
     <article>
         <header>
-            <h1>{{ .Title }}</h1>
-
-            {{ if .Params.job_title }}
-                <p>{{ .Title }} is a {{ .Params.job_title }}.</p>
-            {{ end }}
+            <h1>
+                {{ .Title }}
+                {{ if .Params.job_title }}
+                    <span class="secondary-text">{{ .Params.job_title }}</span>
+                {{ end }}
+            </h1>
 
             {{ if or .Params.website .Params.gitlab }}
-                <ul>
-                    {{ if .Params.gitlab }}
-                        <li><i class="fa fa-gitlab"></i> Gitlab</li>
+                <ul class="tag-list">
+                    {{ if .Params.website }}
+                        <li>
+                            <a
+                                title="Author's website"
+                                href="{{ .Params.website }}"
+                            >
+                                <span class="badge badge-secondary">
+                                    <i class="fa fa-globe"></i> Website
+                                </span>
+                            </a>
+                        </li>
                     {{ end }}
 
-                    {{ if .Params.website }}
-                        <li><i class="fa fa-globe"></i> Website</li>
+                    {{ if .Params.gitlab }}
+                        <li>
+                            <a
+                                title="Author's Gitlab profile"
+                                href="{{ .Params.gitlab }}"
+                            >
+                                <span class="badge badge-secondary">
+                                    <i class="fa fa-gitlab"></i> Gitlab
+                                </span>
+                            </a>
+                        </li>
+                    {{ end }}
+
+                    {{ if .Params.github }}
+                        <li>
+                            <a
+                                title="Author's GitHub profile"
+                                href="{{ .Params.github }}"
+                            >
+                                <span class="badge badge-secondary">
+                                    <i class="fa fa-github"></i> GitHub
+                                </span>
+                            </a>
+                        </li>
                     {{ end }}
                 </ul>
             {{ end }}
         </header>
+
+        <section class="post-content" id="about-author">
+            {{ .Content }}
+        </section>
 
         <section class="post-content">
             {{ $paginator := .Paginate .Data.Pages }}
