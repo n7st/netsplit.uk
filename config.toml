@@ -9,6 +9,11 @@ Paginate = 5
 author = "authors"
 tag    = "tags"
 
+[params]
+    gitlab = "https://git.netsplit.uk"
+    irc    = "https://kiwiirc.com/nextclient/irc.snoonet.org/##netsplit"
+    email  = "mike+website@netsplit.uk"
+
 [menu]
     [[menu.main]]
     identifier = "about"
