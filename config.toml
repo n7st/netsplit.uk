@@ -5,6 +5,8 @@ theme = "netsplit"
 
 Paginate = 5
 
+pluralizelisttitles = false
+
 [taxonomies]
 author = "authors"
 tag    = "tags"

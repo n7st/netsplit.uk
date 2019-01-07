@@ -1,0 +1,39 @@
+{{ define "main" }}
+    <article>
+    <header>
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Description }}</p>
+    </header>
+
+    <section class="post-content">
+        <div class="row">
+            {{ $count := len .Pages }}
+            {{ range $k, $v := .Pages.ByWeight }}
+                <div class="col d-flex align-items-stretch">
+                    <div class="card">
+                        <div class="card-header">{{ $v.Title }}</div>
+
+                        <div class="card-body">{{ $v.Content }}</div>
+                    </div>
+                </div><!--/ .col -->
+
+                {{/* Probably don't look too closely at this */}}
+                {{ if eq 2 (mod $k 3) }}<div class="w-100"></div>{{ end }}
+
+                {{ if eq $k (sub $count 1) }}
+                    {{ if ne 2 (mod $k 3) }}
+                        {{ range (seq 3) }}
+                            {{ $k = add $k 1 }}
+
+                            {{ if ne 2 (mod $k 3) }}<div class="col"></div>{{ end }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </div><!--/ .row -->
+    </section>
+
+    <br>
+
+    {{ .Content }}
+{{ end }}
