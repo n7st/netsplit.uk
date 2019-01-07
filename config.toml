@@ -11,6 +11,7 @@ tag    = "tags"
 
 [params]
     gitlab = "https://git.netsplit.uk"
+    source = "/mike/netsplit.uk"
     irc    = "https://kiwiirc.com/nextclient/irc.snoonet.org/##netsplit"
     email  = "mike+website@netsplit.uk"
 
@@ -28,10 +29,3 @@ tag    = "tags"
     pre = ""
     url = "/project/"
     weight = -115
-
-    [[menu.main]]
-    identifier = "contact"
-    name = "Contact"
-    pre = ""
-    url = "/contact/"
-    weight = -110

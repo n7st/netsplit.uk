@@ -1,14 +1,20 @@
 <span class="footer-left">
     {{ if .Site.Params.gitlab }}
-        <a title="Gitlab" href="{{ .Site.Params.gitlab }}"><i class="fa fa-gitlab"></i></a>
+        <div class="badge badge-secondary">
+            <a title="Gitlab" href="{{ .Site.Params.gitlab }}"><i class="fa fa-gitlab"></i> Gitlab</a>
+        </div>
     {{ end }}
 
     {{ if .Site.Params.irc }}
-        <a title="Chat on IRC" href="{{ .Site.Params.irc }}"><i class="fa fa-comments"></i></a>
+        <div class="badge badge-secondary">
+            <a title="Chat on IRC" href="{{ .Site.Params.irc }}"><i class="fa fa-comments"></i> IRC</a>
+        </div>
     {{ end }}
 
     {{ if .Site.Params.email }}
-        <a title="E-mail" href="mailto:{{ .Site.Params.email }}"><i class="fa fa-at"></i></a>
+        <div class="badge badge-secondary">
+            <a title="E-mail" href="mailto:{{ .Site.Params.email }}"><i class="fa fa-at"></i> E-mail</a>
+        </div>
     {{ end }}
 </span>
 <span class="footer-right">

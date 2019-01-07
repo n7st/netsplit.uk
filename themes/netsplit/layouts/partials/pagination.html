@@ -3,14 +3,16 @@
 <nav aria-label="Pagination tools" class="pagination-nav">
     <div class="row">
         <div class="col">
-            <a title="RSS feed" href="index.xml"><i class="fa fa-rss"></i></a>
+            <div class="badge badge-secondary">
+                <a title="RSS feed" href="index.xml"><i class="fa fa-rss"></i> RSS feed</a>
+            </div>
         </div>
         <div class="col">
             {{ if or ($paginator.HasPrev) ($paginator.HasNext) }}
                 {{ $prev := "Previous" }}
                 {{ $next := "Next" }}
 
-                <ul class="pagination">
+                <ul class="pagination pagination-sm">
                     <li class="page-item">
                         {{ if $paginator.HasPrev }}
                             <a class="page-link" href="{{ $paginator.Prev.URL }}">{{ $prev }}</a>

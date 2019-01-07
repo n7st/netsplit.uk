@@ -1,4 +1,10 @@
 #site-footer {
+    border-top: 1px solid $light-grey;
+
+    .container {
+        padding: $big-padding;
+    }
+
     span {
         display: inline-block;
     }
