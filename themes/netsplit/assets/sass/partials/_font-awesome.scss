@@ -2,7 +2,6 @@
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-
 @import "../../node_modules/font-awesome/scss/variables";
 @import "../../node_modules/font-awesome/scss/mixins";
 @import "../../node_modules/font-awesome/scss/path";
@@ -23,5 +22,7 @@
 .#{$fa-css-prefix}-folder:before { content: $fa-var-folder; }
 .#{$fa-css-prefix}-rss:before { content: $fa-var-rss; }
 .#{$fa-css-prefix}-rss-square:before { content: $fa-var-rss-square; }
+.#{$fa-css-prefix}-comments:before { content: $fa-var-comments; }
+.#{$fa-css-prefix}-at:before { content: $fa-var-at; }
 
 @import "../../node_modules/font-awesome/scss/screen-reader";

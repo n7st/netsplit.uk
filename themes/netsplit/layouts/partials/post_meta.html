@@ -19,7 +19,10 @@
                 <ul>
                     {{ range $k, $v := .Params.tags }}
                         <li>
-                            <a href="{{ $baseUrl }}tags/{{ . | urlize }}">{{ . }}</a>
+                            <a
+                                class="badge badge-secondary"
+                                href="{{ $baseUrl }}tags/{{ . | urlize }}"
+                            >{{ . }}</a>
                         </li>
                     {{ end }}
                 </ul>
