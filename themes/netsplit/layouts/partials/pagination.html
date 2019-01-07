@@ -5,31 +5,38 @@
     {{ $next := "Next" }}
 
     <nav aria-label="Pagination tools" class="pagination-nav">
-        <ul class="pagination">
-            <li class="page-item">
-                {{ if $paginator.HasPrev }}
-                    <a class="page-link" href="{{ $paginator.Prev.URL }}">{{ $prev }}</a>
-                {{ else }}
-                    <a class="page-link disabled">{{ $prev }}</a>
-                {{ end }}
-            </li>
+        <div class="row">
+            <div class="col">
+                <a title="RSS feed" href="/index.xml"><i class="fa fa-rss"></i></a>
+            </div>
+            <div class="col">
+                <ul class="pagination">
+                    <li class="page-item">
+                        {{ if $paginator.HasPrev }}
+                            <a class="page-link" href="{{ $paginator.Prev.URL }}">{{ $prev }}</a>
+                        {{ else }}
+                            <a class="page-link disabled">{{ $prev }}</a>
+                        {{ end }}
+                    </li>
 
-            {{ range $paginator.Pagers }}
-                <li class="page-item{{ if eq . $paginator }} active{{ end }}">
-                    <a href="{{ .URL }}" class="page-link">
-                        {{ .PageNumber }}
-                    </a>
-                </li>
-            {{ end }}
+                    {{ range $paginator.Pagers }}
+                        <li class="page-item{{ if eq . $paginator }} active{{ end }}">
+                            <a href="{{ .URL }}" class="page-link">
+                                {{ .PageNumber }}
+                            </a>
+                        </li>
+                    {{ end }}
 
-            <li class="page-item">
-                {{ if $paginator.HasNext }}
-                    <a class="page-link" href="{{ $paginator.Next.URL }}">{{ $next }}</a>
-                {{ else }}
-                    <a class="page-link disabled">{{ $next }}</a>
-                {{ end }}
-            </li>
-        </ul>
+                    <li class="page-item">
+                        {{ if $paginator.HasNext }}
+                            <a class="page-link" href="{{ $paginator.Next.URL }}">{{ $next }}</a>
+                        {{ else }}
+                            <a class="page-link disabled">{{ $next }}</a>
+                        {{ end }}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <div class="clearfix"></div>

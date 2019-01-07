@@ -40,3 +40,14 @@
 //@import "../../node_modules/bootstrap/scss/carousel";
 @import "../../node_modules/bootstrap/scss/utilities";
 @import "../../node_modules/bootstrap/scss/print";
+
+// Basic overrides
+.badge-secondary {
+    background: $light-grey;
+    color:      $link-inactive;
+}
+
+.badge {
+    padding: 0.5rem;
+}
+

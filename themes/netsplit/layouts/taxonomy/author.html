@@ -21,9 +21,13 @@
         </header>
 
         <section class="post-content">
-            {{ range .Data.Pages }}
+            {{ $paginator := .Paginate .Data.Pages }}
+
+            {{ range $paginator.Pages }}
                 {{ .Render "summary" }}
             {{ end }}
+
+            {{ partial "pagination.html" . }}
         </section>
 
         <footer class="post-footer"></footer>

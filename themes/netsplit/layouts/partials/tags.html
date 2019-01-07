@@ -1,0 +1,16 @@
+{{ if isset .Params "tags" }}
+    {{ $count := len .Params.tags }}
+
+    {{ if gt $count 0 }}
+        <ul class="tag-list">
+            {{ range $k, $v := .Params.tags }}
+                <li>
+                    <a
+                        class="badge badge-secondary"
+                        href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}"
+                    >{{ . }}</a>
+                </li>
+            {{ end }}
+        </ul>
+    {{ end }}
+{{ end }}

@@ -1,6 +1,9 @@
 nav.pagination-nav {
-    float:      right;
-    margin-top: 1rem;
+    padding: $big-padding;
+
+    ul.pagination {
+        float: right;
+    }
 
     a.disabled:hover {
         background: none;

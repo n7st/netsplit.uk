@@ -9,26 +9,6 @@
             {{ .Date.Format "02 Jan 2006, 15:04" }}
         {{ end }}
     </li>
-    {{ if isset .Params "tags" }}
-        <li>
-            Tags:
-
-            {{ $count := len .Params.tags }}
-
-            {{ if gt $count 0 }}
-                <ul>
-                    {{ range $k, $v := .Params.tags }}
-                        <li>
-                            <a
-                                class="badge badge-secondary"
-                                href="{{ $baseUrl }}tags/{{ . | urlize }}"
-                            >{{ . }}</a>
-                        </li>
-                    {{ end }}
-                </ul>
-            {{ end }}
-        </li>
-    {{ end }}
 
     {{ if isset .Params "authors" }}
         {{ $count := len .Params.authors }}
