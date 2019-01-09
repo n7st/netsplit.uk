@@ -1,4 +1,4 @@
-<article>
+<article class="article-summary card">
     <header>
         <h1>{{ .Title }}</h1>
 
@@ -7,11 +7,13 @@
         {{ if .Description }}<p>{{ .Description }}</p><hr>{{ end }}
     </header>
 
-    <section class="post-content">
-        {{ .Content }}
-    </section>
+    <div class="card-body">
+        <section class="post-content">
+            {{ .Content }}
+        </section>
 
-    <footer class="post-footer">
-        {{ partial "tags.html" . }}
-    </footer>
+        <footer class="post-footer">
+            {{ partial "tags.html" . }}
+        </footer>
+    </div>
 </article>

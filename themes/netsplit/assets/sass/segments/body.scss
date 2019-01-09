@@ -1,5 +1,9 @@
 body {
     overflow-y: scroll;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 div#page-content, div#sidebar-nav {
@@ -9,9 +13,10 @@ div#page-content, div#sidebar-nav {
 
 div#page-content {
     padding: 0;
+    flex:    1;
 
     article, footer#site-footer {
-        padding:    2rem;
+        padding: 2rem;
     }
 
     article:first-child {

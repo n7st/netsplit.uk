@@ -1,20 +1,21 @@
-<article class="article-summary">
+<article class="article-summary card">
     <header>
         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
 
         {{ partial "post_meta.html" . }}
     </header>
 
-    <p>
-        {{ if .Description }}
-            {{ .Description }}
-        {{ else if .Summary }}
-            {{ .Summary }}
-        {{ end }}
+    <div class="card-body">
+        <p>
+            {{ if .Description }}
+                {{ .Description }}
+            {{ else if .Summary }}
+                {{ .Summary }}
+            {{ end }}
 
-        {{ if .Truncated }}
-            <a href="{{ .RelPermalink }}">Read more.</a>
-        {{ end }}
-    </p>
-
-</article>
+            {{ if .Truncated }}
+                <a href="{{ .RelPermalink }}">Read more.</a>
+            {{ end }}
+        </p>
+    </div><!--/ .card-body -->
+</article><!--/ .article-summary -->
