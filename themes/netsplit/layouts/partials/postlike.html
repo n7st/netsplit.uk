@@ -4,10 +4,15 @@
 
         {{ partial "post_meta.html" . }}
 
-        {{ if .Description }}<p>{{ .Description }}</p><hr>{{ end }}
     </header>
 
     <div class="card-body">
+        {{ if .Description }}
+            <section class="post-content" id="post-description">
+                <p>{{ .Description }}</p>
+            </section>
+        {{ end }}
+
         <section class="post-content">
             {{ .Content }}
         </section>
