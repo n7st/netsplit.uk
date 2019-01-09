@@ -1,5 +1,5 @@
 {{ define "main" }}
-    <article>
+    <article class="article-summary card">
         <header>
             <h1>
                 {{ .Title }}
@@ -51,21 +51,18 @@
                 </ul>
             {{ end }}
         </header>
-
-        <section class="post-content" id="about-author">
-            {{ .Content }}
-        </section>
-
-        <section class="post-content">
-            {{ $paginator := .Paginate .Data.Pages }}
-
-            {{ range $paginator.Pages }}
-                {{ .Render "summary" }}
-            {{ end }}
-
-            {{ partial "pagination.html" . }}
-        </section>
-
-        <footer class="post-footer"></footer>
+        <div class="card-body">
+            <section class="post-content" id="about-author">
+                {{ .Content }}
+            </section>
+        </div>
     </article>
+
+    {{ $paginator := .Paginate .Data.Pages }}
+
+    {{ range $paginator.Pages }}
+        {{ .Render "summary" }}
+    {{ end }}
+
+    {{ partial "pagination.html" . }}
 {{ end }}
