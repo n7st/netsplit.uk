@@ -1,7 +1,7 @@
 ---
 title: "Static website conversions"
 date: 2019-01-06T19:40:38Z
-draft: false
+draft: true
 type: about
 weight: 3
 ---
