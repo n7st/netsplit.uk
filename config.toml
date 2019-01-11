@@ -1,0 +1,33 @@
+baseURL = "http://localhost:1313"
+languageCode = "en-gb"
+title = "Netsplit.uk"
+theme = "netsplit"
+
+Paginate = 5
+
+pluralizelisttitles = false
+
+[taxonomies]
+author = "authors"
+tag    = "tags"
+
+[params]
+    gitlab = "https://git.netsplit.uk"
+    source = "/mike/netsplit.uk"
+    irc    = "https://kiwiirc.com/nextclient/irc.snoonet.org/##netsplit"
+    email  = "mike+website@netsplit.uk"
+
+[menu]
+    [[menu.main]]
+    identifier = "about"
+    name = "About"
+    pre = ""
+    url = "/about/"
+    weight = -120
+
+    [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    pre = ""
+    url = "/project/"
+    weight = -115

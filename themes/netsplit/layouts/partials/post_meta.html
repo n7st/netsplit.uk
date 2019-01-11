@@ -1,0 +1,21 @@
+{{ $baseUrl := .Site.BaseURL }}
+
+<p>
+    {{ if isset .Params "authors" }}
+        {{ $count := len .Params.authors }}
+
+        By {{/* delimit .Params.authors ", " " &amp; " */}}
+
+        {{ range $k, $v := .Params.authors }}
+            <a href="{{ $baseUrl }}authors/{{ $v | urlize }}">{{ $v }}</a>{{ if eq $k (sub $count 2) }} &amp; {{ else if lt $k (sub $count 2) }}, {{ end }}
+        {{ end }}
+    {{ end }}
+
+    {{ if isset .Params "date" }}
+        <span class="secondary-text">
+            <i class="fa fa-clock-o"></i>
+
+            {{ partial "date.html" . }}
+        </span>
+    {{ end }}
+</p>

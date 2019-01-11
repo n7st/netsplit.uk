@@ -1,0 +1,10 @@
+.navbar-light {
+    background:    none !important;
+    border-bottom: 1px solid $light-grey;
+    box-shadow:    1px 0 5px $light-grey;
+
+    .container {
+        padding-left:  $big-padding;
+        padding-right: $big-padding;
+    }
+}

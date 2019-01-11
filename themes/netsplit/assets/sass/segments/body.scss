@@ -1,0 +1,37 @@
+body {
+    overflow-y: scroll;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+div#page-content, div#sidebar-nav {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+
+div#page-content {
+    padding: 0;
+    flex:    1;
+
+    article, footer#site-footer {
+        padding: 2rem;
+    }
+
+    article:first-child {
+        //border-top: 0;
+    }
+
+    article {
+        //background: $light-grey;
+    }
+
+    footer#site-footer {
+        //background: $tan;
+    }
+}
+
+.gimme-some-space, .w-100 {
+    margin-top: $big-padding;
+}

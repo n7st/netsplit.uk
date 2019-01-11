@@ -1,0 +1,25 @@
+nav.pagination-nav {
+    padding: $big-padding;
+
+    ul.pagination {
+        float: right;
+    }
+
+    a.disabled:hover {
+        background: none;
+        color:      $link-inactive;
+        cursor:     default;
+    }
+
+    .page-item.active .page-link {
+        //background: $active;
+    }
+
+    .page-link {
+        color: $link-inactive;
+    }
+
+    .page-item:last-child .page-link {
+        border-radius: $border-radius;
+    }
+}

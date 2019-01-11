@@ -1,0 +1,57 @@
+body {
+    font-family: 'Merriweather', sans-serif;
+}
+
+code {
+    font-family: 'Fira Mono', monospace;
+}
+
+#site-title {
+    border-bottom:  1px solid $link-inactive;
+    font-weight:    bold;
+    font-size:      1.1em;
+    padding-bottom: $small-padding;
+}
+
+#sidebar-nav li, p {
+    line-height: 1.6em;
+}
+
+p {
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+a, a:hover {
+    color: $link-inactive;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h2 a {
+    border-radius: $border-radius;
+    font-size:     1.25em;
+}
+
+h2 a:hover {
+    background:      $light-grey;
+    text-decoration: none;
+}
+
+article {
+    p, footer {
+        padding-top: $small-padding;
+    }
+}
+
+p > span, h1 > span, h2 > span, h3 > span {
+    float: right;
+}
+
+span.secondary-text {
+    color: $link-inactive;
+}
