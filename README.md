@@ -4,7 +4,7 @@ Static site built with Hugo.
 
 ## Prerequisites
 
-* [Hugo (extended version)]*(https://gohugo.io/getting-started/installing/#fetch-from-github)
+* [Hugo (extended version)](https://gohugo.io/getting-started/installing/#fetch-from-github)
 
 ## Run the development webserver
 
