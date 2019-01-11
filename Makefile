@@ -1,7 +1,7 @@
 .PHONY: build clean
 
 build:
-	hugo -d build
+	hugo -s .
 
 clean:
-	rm -rf build/*
+	rm -rf public/*
