@@ -15,6 +15,8 @@ steps:
   pull: default
   image: cbrgm/drone-hugo:latest
   url: https://netsplit.uk
+  env:
+  - HUGO_VERSION=0.53
   validate: true
   buildDrafts: false
   buildExpired: false
