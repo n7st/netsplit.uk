@@ -1,0 +1,27 @@
+---
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+workspace:
+  base: /opt
+  path: website
+
+steps:
+- name: build
+  pull: default
+  image: drone-plugins/drone-hugo
+  url: https://netsplit.uk
+  validate: true
+  output: public
+  content: content
+  layout: layout
+  theme: themes/netsplit
+  buildDrafts: false
+  buildExpired: false
+  buildFuture: false
+
+...
