@@ -23,5 +23,4 @@ steps:
   buildDrafts: false
   buildExpired: false
   buildFuture: false
-
 ...
