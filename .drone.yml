@@ -13,7 +13,7 @@ workspace:
 steps:
 - name: build
   pull: default
-  image: drone-plugins/drone-hugo
+  image: plugins/drone-hugo
   url: https://netsplit.uk
   validate: true
   output: public
