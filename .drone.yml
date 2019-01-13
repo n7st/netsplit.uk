@@ -16,10 +16,6 @@ steps:
   image: cbrgm/drone-hugo:latest
   url: https://netsplit.uk
   validate: true
-  output: public
-  content: content
-  layout: layout
-  theme: themes/netsplit
   buildDrafts: false
   buildExpired: false
   buildFuture: false
