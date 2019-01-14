@@ -13,12 +13,11 @@ workspace:
 steps:
 - name: build
   pull: default
-  image: cbrgm/drone-hugo:latest
+  image: n7st/drone-hugo:0.53
   url: https://netsplit.uk
-  env:
-  - HUGO_VERSION=0.53
   validate: true
   buildDrafts: false
   buildExpired: false
   buildFuture: false
+
 ...
