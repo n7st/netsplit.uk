@@ -38,4 +38,4 @@ deploy:
         - yarn install
         - cd ../..
         - hugo
-        - scp -r public $OUTPUT_LOCATION
+        - scp -r public $OUTPUT_LOCATION > /dev/null
