@@ -7,7 +7,7 @@
         By {{/* delimit .Params.authors ", " " &amp; " */}}
 
         {{ range $k, $v := .Params.authors }}
-            <a href="{{ $baseUrl }}authors/{{ $v | urlize }}">{{ $v }}</a>{{ if eq $k (sub $count 2) }} &amp; {{ else if lt $k (sub $count 2) }}, {{ end }}
+            <a href="{{ $baseUrl }}/authors/{{ $v | urlize }}">{{ $v }}</a>{{ if eq $k (sub $count 2) }} &amp; {{ else if lt $k (sub $count 2) }}, {{ end }}
         {{ end }}
     {{ end }}
 
