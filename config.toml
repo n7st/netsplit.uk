@@ -23,11 +23,11 @@ tag    = "tags"
     name = "About"
     pre = ""
     url = "/about/"
-    weight = -120
+    weight = -110
 
     [[menu.main]]
     identifier = "projects"
-    name = "Projects"
+    name = "Open Source"
     pre = ""
     url = "/project/"
     weight = -115
