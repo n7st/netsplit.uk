@@ -13,11 +13,11 @@ stages:
 generate:
     stage: generate
     script:
-        - echo "Test generate\n"
-        - hugo version
+        - hugo
 
 deploy:
     stage: deploy
     script:
         - echo "Test deploy\n"
         - hugo version
+        - ls -la
