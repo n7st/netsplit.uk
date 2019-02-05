@@ -23,6 +23,8 @@ generate:
 deploy:
     stage: deploy
     script:
-        - echo "Test deploy\n"
-        - hugo version
-        - ls -la
+        - cd themes/netsplit
+        - yarn install
+        - cd ../..
+        - hugo
+        - ls -la public
