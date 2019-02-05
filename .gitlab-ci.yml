@@ -7,6 +7,7 @@ before_script:
     - apk update
     - apk upgrade
     - apk add yarn
+    - apk add openssh-client
 
 stages:
     - generate
@@ -23,8 +24,12 @@ generate:
 deploy:
     stage: deploy
     script:
+        - eval $(ssh-agent -s)
+        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+        - mkdir -p ~/.ssh
+        - chmod 700 ~/.ssh
         - cd themes/netsplit
         - yarn install
         - cd ../..
         - hugo
-        - ls -la public
+        - scp -r public $OUTPUT_LOCATION
