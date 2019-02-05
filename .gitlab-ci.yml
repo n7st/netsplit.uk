@@ -32,8 +32,8 @@ deploy:
         - chmod 700 ~/.ssh
         - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
         - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+        - echo "LogLevel=quiet" > ~/.ssh/config
         - chmod 644 ~/.ssh/known_hosts
-        - ls ~/.ssh -l
         - cd themes/netsplit
         - yarn install
         - cd ../..
