@@ -1,8 +1,8 @@
 body {
     overflow-y: scroll;
 
-    display: flex;
-    min-height: 100vh;
+    display:        flex;
+    min-height:     100vh;
     flex-direction: column;
 }
 
@@ -17,18 +17,6 @@ div#page-content {
 
     article, footer#site-footer {
         padding: 2rem;
-    }
-
-    article:first-child {
-        //border-top: 0;
-    }
-
-    article {
-        //background: $light-grey;
-    }
-
-    footer#site-footer {
-        //background: $tan;
     }
 }
 

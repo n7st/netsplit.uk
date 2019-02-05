@@ -48,6 +48,19 @@
                             </a>
                         </li>
                     {{ end }}
+
+                    {{ if .Params.keybase }}
+                        <li>
+                            <a
+                                title="Author's Keybase profile"
+                                href="{{ .Params.keybase }}"
+                            >
+                                <span class="badge badge-secondary">
+                                    <i class="fas fa-key"></i> Keybase
+                                </span>
+                            </a>
+                        </li>
+                    {{ end }}
                 </ul>
             {{ end }}
         </header>
