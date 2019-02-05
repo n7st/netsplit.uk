@@ -1,6 +1,6 @@
 baseURL = "https://netsplit.uk"
 languageCode = "en-gb"
-title = "Netsplit.uk"
+title = "Netsplit Software"
 theme = "netsplit"
 
 Paginate = 5
