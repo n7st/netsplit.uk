@@ -4,7 +4,9 @@ variables:
     url: https://netsplit.uk/
 
 before_script:
-    - echo "Test\n";
+    - apk update
+    - apk upgrade
+    - apk add yarn
 
 stages:
     - generate
@@ -13,6 +15,9 @@ stages:
 generate:
     stage: generate
     script:
+        - cd themes/netsplit
+        - yarn install
+        - cd ../..
         - hugo
 
 deploy:
