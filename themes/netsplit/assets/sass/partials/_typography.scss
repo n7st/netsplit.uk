@@ -24,6 +24,10 @@ h2, h3 {
     margin-top: 1em;
 }
 
+header > h2 {
+    margin-top: auto !important;
+}
+
 h3 {
     font-size: 1.3em;
 }
