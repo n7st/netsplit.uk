@@ -9,7 +9,7 @@ description: |
 os_link: https://git.netsplit.uk/mike/quoteDB
 type: project
 kind: project
-tags: [ "irc", "golang", "docker" ]
+tags: [ "IRC", "Golang", "Docker" ]
 authors: [ "Mike Jones" ]
 ---
 
