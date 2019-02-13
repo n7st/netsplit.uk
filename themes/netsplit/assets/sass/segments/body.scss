@@ -6,12 +6,12 @@ body {
     flex-direction: column;
 }
 
-div#page-content, div#sidebar-nav {
+div.page-content, div#sidebar-nav {
     margin-top:    1rem;
     margin-bottom: 1rem;
 }
 
-div#page-content {
+div.page-content {
     padding: 0;
     flex:    1;
 

@@ -4,14 +4,14 @@
     <body class="site">
         {{- partial "nav.html" . -}}
 
-        <div class="container" id="page-content">
+        <div class="container page-content">
             <main>
                 {{- block "main" . }}{{- end }}
             </main>
         </div>
 
         <footer id="site-footer">
-            <div class="container" id="page-content">
+            <div class="container page-content">
                 {{- partial "footer.html" . -}}
             </div>
         </footer>
