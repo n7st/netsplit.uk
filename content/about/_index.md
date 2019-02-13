@@ -2,10 +2,10 @@
 title: "About"
 date: 2019-01-06T19:40:38Z
 draft: false
-#description: |
-#    We build reliable, consistent web applications. Please contact us using the
-#    links in the footer about any green or brownfield software projects you have
-#    in mind.
+description: |
+    We are currently available for web or chat application side-projects in
+    Golang and Perl 5. Please use the contact details in the footer to get in
+    touch!
 type: about
 ---
 
