@@ -1,12 +1,12 @@
 ---
-title: "Introduction: Remote Proxmox and pfSense Lab"
+title: "Remote Lab, Part 1: Pre-Installation Configuration"
 date: 2019-02-13T20:05:24Z
 type: post
 authors: [ 'Mike Jones' ]
 tags: [ 'Remote Lab', 'OVH', 'Networking' ]
 description: |
-    Part 1: Building a remote lab with Proxmox and pfSense on an OVH dedicated
-    server. Set up a dedicated server with multiple IP addresses.
+    Part 1: Set up a dedicated server with multiple IP addresses.
+    Build a remote lab with Proxmox and pfSense on an OVH dedicated server.
 ---
 
 * [Part 1 (Introduction, OVH configuration. You're here!)](#)

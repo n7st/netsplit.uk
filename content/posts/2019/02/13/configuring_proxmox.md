@@ -1,5 +1,5 @@
 ---
-title: "Remote Lab: Configuring Proxmox"
+title: "Remote Lab, Part 2: Configuring Proxmox"
 date: 2019-02-13T22:02:42Z
 draft: false
 type: post
