@@ -3,7 +3,7 @@
     <meta name="description" content="{{ if .IsNode }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
     {{.Hugo.Generator}}
 
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Fira+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather%7CFira+Mono" rel="stylesheet">
 
     {{ $styles := resources.Get "sass/application.scss" | toCSS | minify | fingerprint }}
     <link
