@@ -9,8 +9,8 @@ description: |
     server. Set up a dedicated server with multiple IP addresses.
 ---
 
-* [Part 1 (Introduction, OVH configuration. You're here!)](/posts/2019/02/13/remote_proxmox_lab_intro/)
-* [Part 2 (Configuring Proxmox.)](#)
+* [Part 1 (Introduction, OVH configuration. You're here!)](#)
+* [Part 2 (Configuring Proxmox.)](/posts/2019/02/13/configuring_proxmox/)
 
 ## Overview
 
