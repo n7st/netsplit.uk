@@ -14,7 +14,7 @@ tag    = "tags"
 [params]
     gitlab = "https://git.netsplit.uk"
     source = "/mike/netsplit.uk"
-    irc    = "https://kiwiirc.com/nextclient/irc.snoonet.org/##netsplit"
+    irc    = "https://kiwiirc.com/nextclient/irc.snoonet.org/#%23netsplit"
     email  = "mike+website@netsplit.org.uk"
 
 [menu]
