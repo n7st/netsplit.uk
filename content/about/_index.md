@@ -5,7 +5,7 @@ draft: false
 description: |
     We are currently available for web or chat application side-projects in
     Golang and Perl 5. Please use the contact details in the footer to get in
-    touch!
+    touch.
 type: about
 ---
 
