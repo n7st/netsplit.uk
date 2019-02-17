@@ -12,10 +12,10 @@
             {{ else if .Summary }}
                 {{ .Summary }}
             {{ end }}
-
-            {{ if .Truncated }}
-                <a href="{{ .RelPermalink }}">Read more.</a>
-            {{ end }}
         </p>
     </div><!--/ .card-body -->
+
+    <div class="card-footer">
+        <a href="{{ .RelPermalink }}">Read more.</a>
+    </div>
 </article><!--/ .article-summary -->

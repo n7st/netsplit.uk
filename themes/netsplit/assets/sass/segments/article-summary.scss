@@ -12,9 +12,14 @@ article.article-summary {
         padding: $article-header-padding $article-header-padding 0 $article-header-padding;
     }
 
-    .card-body {
+    .card-body, .card-footer {
         padding-left:  $article-header-padding;
         padding-right: $article-header-padding;
+    }
+
+    .card-footer {
+        background: none;
+        border-top: 1px solid $light-grey;
     }
 }
 
