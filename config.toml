@@ -17,6 +17,8 @@ tag    = "tags"
     irc    = "https://kiwiirc.com/nextclient/irc.snoonet.org/#%23netsplit"
     email  = "mike+website@netsplit.org.uk"
 
+    description = "Software development and systems engineering based in Reading, UK"
+
 [menu]
     [[menu.main]]
     identifier = "about"

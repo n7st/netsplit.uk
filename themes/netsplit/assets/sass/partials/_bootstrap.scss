@@ -61,3 +61,11 @@ $primary: $active;
     padding: 0.5rem;
 }
 
+.list-group-nodec {
+    li {
+        border: 0 !important;
+        padding: $smaller-padding;
+    }
+}
+
+

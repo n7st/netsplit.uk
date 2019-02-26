@@ -1,23 +1,36 @@
-<span class="footer-left">
-    {{ if .Site.Params.gitlab }}
-        <span class="badge badge-secondary">
-            <a title="Gitlab" href="{{ .Site.Params.gitlab }}"><i class="fa fa-gitlab"></i> Gitlab</a>
-        </span>
-    {{ end }}
-
-    {{ if .Site.Params.irc }}
-        <span class="badge badge-secondary">
-            <a title="Chat on IRC" href="{{ .Site.Params.irc }}"><i class="fa fa-comments"></i> IRC</a>
-        </span>
-    {{ end }}
-
-    {{ if .Site.Params.email }}
-        <span class="badge badge-secondary">
-            <a title="E-mail" href="mailto:{{ .Site.Params.email }}"><i class="fa fa-at"></i> E-mail</a>
-        </span>
-    {{ end }}
-</span>
-
-<span class="footer-right">
-    &copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-</span>
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="p-3 flex-fill">
+        <ul class="list-group list-group-nodec">
+            {{ if .Site.Params.gitlab }}
+                <a href="{{ .Site.Params.gitlab }}" title="View projects on Gitlab">
+                    <li class="list-group-item">
+                        <i class="fas fa-chevron-right"></i>&nbsp;Gitlab
+                    </li>
+                </a>
+            {{ end }}
+            {{ if .Site.Params.irc }}
+                <a href="{{ .Site.Params.irc }}" title="Chat on IRC">
+                    <li class="list-group-item">
+                        <i class="fas fa-chevron-right"></i>&nbsp;IRC
+                    </li>
+                </a>
+            {{ end }}
+            {{ if .Site.Params.email }}
+                <a href="mailto:{{ .Site.Params.email }}" title="E-mail">
+                    <li class="list-group-item">
+                        <i class="fas fa-chevron-right"></i>&nbsp;E-mail
+                    </li>
+                </a>
+            {{ end }}
+        </ul>
+    </div>
+    <div class="p-3 flex-fill">
+        <ul class="list-group list-group-nodec">
+            <li class="list-group-item text-right">
+                <i class="far fa-copyright"></i>
+                {{ now.Format "2006" }}
+                <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+            </li>
+        </ul>
+    </div>
+</div><!--/ .d-flex -->
