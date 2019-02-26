@@ -6,6 +6,14 @@ code {
     font-family: 'Fira Mono', monospace;
 }
 
+::selection {
+    background: hsla(152, 49%, 82%, 1);
+}
+
+::-moz-selection {
+    background: hsla(152, 49%, 82%, 1);
+}
+
 #site-title {
     border-bottom:  1px solid $link-inactive;
     font-weight:    bold;
