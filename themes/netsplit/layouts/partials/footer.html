@@ -1,5 +1,5 @@
-<div class="d-flex flex-row bd-highlight mb-3">
-    <div class="p-3 flex-fill">
+<div class="row">
+    <div class="col-sm">
         <ul class="list-group list-group-nodec">
             {{ if .Site.Params.gitlab }}
                 <a href="{{ .Site.Params.gitlab }}" title="View projects on Gitlab">
@@ -23,8 +23,8 @@
                 </a>
             {{ end }}
         </ul>
-    </div>
-    <div class="p-3 flex-fill">
+    </div><!--/ .col-sm -->
+    <div class="col-sm">
         <ul class="list-group list-group-nodec">
             <li class="list-group-item text-right">
                 <i class="far fa-copyright"></i>
@@ -32,5 +32,5 @@
                 <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
             </li>
         </ul>
-    </div>
-</div><!--/ .d-flex -->
+    </div><!--/ .col-sm -->
+</div><!--/ .row -->
