@@ -1,5 +1,9 @@
 body {
     font-family: 'Merriweather', sans-serif;
+
+    a:hover {
+        text-decoration: underline;
+    }
 }
 
 code {
