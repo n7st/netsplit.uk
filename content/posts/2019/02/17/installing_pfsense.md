@@ -12,6 +12,7 @@ description: |
 * [Part 1 (Introduction, OVH configuration.)](/posts/2019/02/13/remote_proxmox_lab_intro/)
 * [Part 2 (Configuring Proxmox.)](/posts/2019/02/13/configuring_proxmox/)
 * [Part 3 (Installing pfSense. You're here!)](#)
+* [Part 4 (Configuring pfSense.)](/posts/2020/01/11/configuring_pfsense)
 
 ## First boot
 

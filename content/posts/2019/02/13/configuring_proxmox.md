@@ -13,6 +13,7 @@ description: |
 * [Part 1 (Introduction, OVH configuration.)](/posts/2019/02/13/remote_proxmox_lab_intro/)
 * [Part 2 (Configuring Proxmox. You're here!)](#)
 * [Part 3 (Installing pfSense.)](/posts/2019/02/17/installing_pfsense/)
+* [Part 4 (Configuring pfSense.)](/posts/2020/01/11/configuring_pfsense)
 
 Now, we'll need to install Proxmox on the server. I won't cover the basic
 installation in this post, but I am using Proxmox VE 5, which is available as a
