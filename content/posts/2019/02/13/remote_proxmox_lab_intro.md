@@ -12,6 +12,7 @@ description: |
 * [Part 1 (Introduction, OVH configuration. You're here!)](#)
 * [Part 2 (Configuring Proxmox.)](/posts/2019/02/13/configuring_proxmox/)
 * [Part 3 (Installing pfSense.)](/posts/2019/02/17/installing_pfsense/)
+* [Part 4 (Configuring pfSense.)](/posts/2020/01/11/configuring_pfsense)
 
 ## Overview
 
