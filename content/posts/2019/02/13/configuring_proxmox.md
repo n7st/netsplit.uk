@@ -3,7 +3,6 @@ title: "Remote Lab, Part 2: Configuring Proxmox"
 date: 2019-02-13T22:02:42Z
 draft: false
 type: post
-authors: [ 'Mike Jones' ]
 tags: [ 'Remote Lab', 'Proxmox', 'pfSense', 'OVH', 'Networking' ]
 description: |
     Part 2: Configuring Proxmox and setting up the base virtual machines for our
@@ -49,47 +48,11 @@ For the most basic setup, three network bridges are required (which will become
 the WAN, LAN and OPT1 interfaces in our router). These are configured in the
 host node's network settings.
 
-<table class="table table-bordered">
-    <colgroup>
-
-    </colgroup>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Ports/Slaves</th>
-            <th>IP address</th>
-            <th>Subnet mask</th>
-            <th>Gateway</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>vmbr0</td>
-            <td>Linux bridge</td>
-            <td>eth0</td>
-            <td>Primary IP address (ex. 5.39.50.60)</td>
-            <td>255.255.255.0</td>
-            <td>Primary gateway address (ex. 5.39.50.254)</td>
-        </tr>
-        <tr>
-            <td>vmbr1</td>
-            <td>Linux bridge</td>
-            <td>dummy0</td>
-            <td>(none)</td>
-            <td>(none)</td>
-            <td>(none)</td>
-        </tr>
-        <tr>
-            <td>vmbr2</td>
-            <td>Linux bridge</td>
-            <td>dummy1</td>
-            <td>(none)</td>
-            <td>(none)</td>
-            <td>(none)</td>
-        </tr>
-    </tbody>
-</table>
+| Name  | Type         | Ports/Slaves | IP address                          | Subnet mask   | Gateway                                   |
+|-------|--------------|--------------|-------------------------------------|---------------|-------------------------------------------|
+| vmbr0 | Linux bridge | eth0         | Primary IP address (ex. 5.39.50.60) | 255.255.255.0 | Primary gateway address (ex. 5.39.50.254) |
+| vmbr1 | Linux bridge | dummy0       | (none)                              | (none)        | (none)                                    |
+| vmbr2 | Linux bridge | dummy1       | (none)                              | (none)        | (none)                                    |
 
 ### Virtual hardware for pfSense
 

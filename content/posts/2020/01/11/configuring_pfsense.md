@@ -3,7 +3,6 @@ title: "Remote Lab, Part 4: Configuring pfSense"
 date: 2020-01-11T12:29:20
 draft: false
 type: post
-authors: [ 'Mike Jones' ]
 tags: [ 'Remote Lab', 'OVH', 'Networking', 'pfSense']
 description: |
     Part 4: Configuring NAT and firewall rules in pfSense.
@@ -27,13 +26,13 @@ Virtual IPs are required for NAT. [Here is pfSense's official documentation](htt
 
 1. From the "Firewall" menu, select "Virtual IPs".
 2. Add two new virtual IPs with the following settings:
-    1. The internal IP address:
+    * The internal IP address:
         - Type: "Proxy ARP"
         - Interface: "OPT1"
         - Address type: "Network"
         - Address(es): "10.5.4.2" / "32" (single IPv4 address)
         - Description: Not parsed
-    2. The external IP address:
+    * The external IP address:
         - Type: "Proxy ARP"
         - Interface: "WAN"
         - Address type: "Network"
