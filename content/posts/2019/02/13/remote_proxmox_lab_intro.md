@@ -2,7 +2,6 @@
 title: "Remote Lab, Part 1: Pre-Installation Configuration"
 date: 2019-02-13T20:05:24Z
 type: post
-authors: [ 'Mike Jones' ]
 tags: [ 'Remote Lab', 'OVH', 'Networking' ]
 description: |
     Part 1: Set up a dedicated server with multiple IP addresses.

@@ -3,7 +3,6 @@ title: "Building a Mattermost Chatbot in Perl"
 date: 2019-01-09T17:53:11Z
 draft: false
 type: post
-authors: [ 'Mike Jones' ]
 tags: [ 'Perl 5', 'Chatops', 'Bot', 'WebService::Mattermost', 'Tutorial' ]
 description: |
     This article provides a brief overview of how to set up a Mattermost chatbot
@@ -33,7 +32,41 @@ change the authentication values in the constructor for
 [`WebService::Mattermost::V4::Client`](https://metacpan.org/pod/WebService::Mattermost::V4::Client)
 to your own Mattermost server and bot user.
 
-{{< gist n7st d73a03a0aa17b731fd31e2b4fa219e6c "greeter.pl" >}}
+```perl
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use WebService::Mattermost::V4::Client;
+
+my $bot = WebService::Mattermost::V4::Client->new({
+    username => 'MATTERMOST USERNAME HERE',
+    password => 'MATTERMOST PASSWORD HERE',
+    base_url => 'https://my.mattermost-server.com/api/v4/',
+
+    debug => 1, # Show extra connection information
+});
+
+# Triggered on every message received by the gateway
+$bot->on(gw_message => sub {
+    my ($bot, $args) = @_;
+
+    # Only post-like messages contain post_data
+    my $message = $args->{post_data}->{message};
+
+    if ($message && lc $message eq 'hello') {
+        # Respond with a friendly greeting
+        $bot->api->posts->create({
+            message    => 'Hi, @'.$args->{message}->{data}->{sender_name},
+            channel_id => $args->{post_data}->{channel_id},
+        });
+    }
+});
+
+# Start the bot
+$bot->start();
+```
 
 ## Breakdown
 
@@ -45,18 +78,51 @@ to your own Mattermost server and bot user.
     - `base_url`: the base URL of your Mattermost server's API (e.g.
       "[https://my.mattermost-server.com/api/v4/](#)")
 
-{{< gist n7st d73a03a0aa17b731fd31e2b4fa219e6c "use.pl" >}}
+```perl
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use WebService::Mattermost::V4::Client;
+
+my $bot = WebService::Mattermost::V4::Client->new({
+    username => 'MATTERMOST USERNAME HERE',
+    password => 'MATTERMOST PASSWORD HERE',
+    base_url => 'https://my.mattermost-server.com/api/v4/',
+
+    debug => 1, # Show extra connection information
+});
+```
 
 * Next, we add a non-blocking loop which watches for messages from the gateway.
 * Received messages include two arguments: `$bot`, which contains our instance
   of `WebService::Mattermost::V4::Client`, and `$args`, which contains the
   message from the gateway.
 
-{{< gist n7st d73a03a0aa17b731fd31e2b4fa219e6c "loop.pl" >}}
+```perl
+# Triggered on every message received by the gateway
+$bot->on(gw_message => sub {
+    my ($bot, $args) = @_;
+
+    # Only post-like messages contain post_data
+    my $message = $args->{post_data}->{message};
+
+    if ($message && lc $message eq 'hello') {
+        # Respond with a friendly greeting
+        $bot->api->posts->create({
+            message    => 'Hi, @'.$args->{message}->{data}->{sender_name},
+            channel_id => $args->{post_data}->{channel_id},
+        });
+    }
+});
+```
 
 * Finally, we start the bot.
 
-{{< gist n7st d73a03a0aa17b731fd31e2b4fa219e6c "start.pl" >}}
+```perl
+$bot->start();
+```
 
 ## Extending
 

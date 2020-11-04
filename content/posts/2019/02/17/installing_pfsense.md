@@ -3,7 +3,6 @@ title: "Remote Lab, Part 3: Installing pfSense"
 date: 2019-02-17T22:22:25Z
 draft: false
 type: post
-authors: [ 'Mike Jones' ]
 tags: [ 'Remote Lab', 'OVH', 'Networking', 'pfSense' ]
 description: |
     Part 3: Install pfSense on an OVH dedicated server.
@@ -175,6 +174,4 @@ in mine certainly doesn't).
 1. From the "System" menu, select "Advanced" and then go to the "Networking" tab.
 2. Check "Disable hardware checksum offload".
 3. Reboot the system ("Halt system" under the "Diagnostics" menu).
-
-*Part 4 coming soon...*
 
