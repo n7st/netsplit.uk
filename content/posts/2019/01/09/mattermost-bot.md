@@ -23,7 +23,7 @@ how to use it in a basic script, and demonstrate with a bot which greets users.
 Installable from [CPAN](https://www.cpan.org/):
 
 * [`WebService::Mattermost`](https://metacpan.org/pod/WebService::Mattermost)
-  ([source](https://git.netsplit.uk/mike/webservice-mattermost))
+  ([source](https://github.com/n7st/webservice-mattermost))
 
 ## Final code
 
