@@ -11,7 +11,7 @@ Perl. It provides two interfaces to the Mattermost API and WebSocket gateway:
 from a script, and as a base for <a href=https://metacpan.org/pod/Moo>Moo</a> and
 <a href=https://metacpan.org/pod/Moose>Moose</a> classes. In this article, I will cover
 how to use it in a basic script, and demonstrate with a bot which greets users.</p><h2 id=requirements>Requirements<a href=#requirements class=hanchor arialabel=Anchor>&#8983;</a></h2><p>Installable from <a href=https://www.cpan.org/>CPAN</a>:</p><ul><li><a href=https://metacpan.org/pod/WebService::Mattermost><code>WebService::Mattermost</code></a>
-(<a href=https://git.netsplit.uk/mike/webservice-mattermost>source</a>)</li></ul><h2 id=final-code>Final code<a href=#final-code class=hanchor arialabel=Anchor>&#8983;</a></h2><p>For anyone who doesn&rsquo;t want to read, here is the final product. You will need to
+(<a href=https://github.com/n7st/webservice-mattermost>source</a>)</li></ul><h2 id=final-code>Final code<a href=#final-code class=hanchor arialabel=Anchor>&#8983;</a></h2><p>For anyone who doesn&rsquo;t want to read, here is the final product. You will need to
 change the authentication values in the constructor for
 <a href=https://metacpan.org/pod/WebService::Mattermost::V4::Client><code>WebService::Mattermost::V4::Client</code></a>
 to your own Mattermost server and bot user.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
