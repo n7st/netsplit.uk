@@ -59,55 +59,14 @@ host node's network settings.
 Below are the current specifications for my router's virtual hardware. Your
 mileage may vary.
 
-<table class="table table-bordered">
-    <colgroup>
-        <col style="width: 33.3%">
-        <col style="width: 33.3%">
-        <col style="width: auto">
-    </colgroup>
-    <thead>
-        <tr>
-            <th>Item</th>
-            <th>Value</th>
-            <th>Notes</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>CPU</td>
-            <td>2 vCPU</td>
-            <td>
-                A type of "host" (for host-passthrough) is required if you would
-                like to use AES-NI CPU Crypto
-            </td>
-        </tr>
-        <tr>
-            <td>RAM</td>
-            <td>4G</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Storage</td>
-            <td>32G</td>
-            <td>I am using a VirtIO disk</td>
-        </tr>
-        <tr>
-            <td>Network Device 1</td>
-            <td>vmbr0, VirtIO (or E1000)</td>
-            <td>This will be used as the WAN interface</td>
-        </tr>
-        <tr>
-            <td>Network Device 2</td>
-            <td>vmbr1, VirtIO (or E1000)</td>
-            <td>This will be used as the LAN interface</td>
-        </tr>
-        <tr>
-            <td>Network Device 3</td>
-            <td>vmbr2, VirtIO (or E1000)</td>
-            <td>This will be used as the OPT1 interface</td>
-        </tr>
-    </tbody>
-</table>
+| Item             | Value                    | Notes                                                                                                |
+|------------------|--------------------------|------------------------------------------------------------------------------------------------------|
+| CPU              | 2 vCPUs                  | A type of "host" (for host-passthrough) is required if you would like to use AES-NI CPU cryptography |
+| RAM              | 4G                       |                                                                                                      |
+| Storage          | 32G                      | I am using a VirtIO disk                                                                             |
+| Network Device 1 | vmbr0, VirtIO (or E1000) | This will be used as the WAN interface                                                               |
+| Network Device 2 | vmbr1, VirtIO (or E1000) | This will be used as the LAN interface                                                               |
+| Network Device 3 | vmbr2, VirtIO (or E1000) | This will be used as the OPT1 interface                                                              |
 
 In the next part, we'll install pfSense and configure the basic interfaces.
 
