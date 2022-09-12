@@ -42,6 +42,26 @@ repository.
 Comment out the only line in `/etc/apt/sources.list.d/pve-enterprise.list` and
 run `apt update`.
 
+Adding the "no subscription" repository to `/etc/apt/sources.list` means you will
+still receive Proxmox updates:
+
+```
+# Please note that the APT repositories in this sample file use the UK Debian
+# mirror
+deb http://ftp.uk.debian.org/debian bullseye main contrib
+
+deb http://ftp.uk.debian.org/debian bullseye-updates main contrib
+
+# security updates
+deb http://security.debian.org bullseye-security main contrib
+
+# PVE pve-no-subscription repository provided by proxmox.com,
+# NOT recommended for production use
+deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
+```
+
+See [here](https://pve.proxmox.com/wiki/Package_Repositories) for more information.
+
 ### Network bridges
 
 For the most basic setup, three network bridges are required (which will become
