@@ -33,10 +33,10 @@ facing:
    `certbot` look good, too).
 4. Disable password authentication over SSH and use key authentication instead.
 
-### Disabling the enterprise apt repository
+### Disabling the enterprise APT repository
 
 Unless you have a Proxmox subscription, `apt` will fail with an exit code of 100.
-This is because it is trying to read from the subscription-only enterprise apt
+This is because it is trying to read from the subscription-only enterprise APT
 repository.
 
 Comment out the only line in `/etc/apt/sources.list.d/pve-enterprise.list` and
