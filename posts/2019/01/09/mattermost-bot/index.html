@@ -1,7 +1,8 @@
 <!doctype html><html lang=en><head><title>Building a Mattermost Chatbot in Perl :: netsplit</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Introduction WebService::Mattermost is an alternative Mattermost chatbot library written in Perl. It provides two interfaces to the Mattermost API and WebSocket gateway: from a script, and as a base for Moo and Moose classes. In this article, I will cover how to use it in a basic script, and demonstrate with a bot which greets users.
 Requirements Installable from CPAN:
- WebService::Mattermost (source)  Final code For anyone who doesn&amp;rsquo;t want to read, here is the final product."><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=https://netsplit.uk/posts/2019/01/09/mattermost-bot/><link rel=stylesheet href=https://netsplit.uk/assets/style.css><link rel=stylesheet href=https://netsplit.uk/assets/green.css><link rel=apple-touch-icon href=https://netsplit.uk/img/apple-touch-icon-192x192.png><link rel="shortcut icon" href=https://netsplit.uk/img/favicon/green.png><meta name=twitter:card content="summary"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="og:title" content="Building a Mattermost Chatbot in Perl"><meta property="og:description" content="This article provides a brief overview of how to set up a Mattermost chatbot
-in Perl 5."><meta property="og:url" content="https://netsplit.uk/posts/2019/01/09/mattermost-bot/"><meta property="og:site_name" content="netsplit"><meta property="og:image" content="https://netsplit.uk/img/favicon/green.png"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1024"><meta property="article:published_time" content="2019-01-09 17:53:11 +0000 UTC"></head><body class=green><div class="container full headings--one-size"><header class=header><div class=header__inner><div class=header__logo><a href=/><div class=logo>netsplit</div></a></div><div class=menu-trigger>menu</div></div></header><div class=content><div class=post><h1 class=post-title><a href=https://netsplit.uk/posts/2019/01/09/mattermost-bot/>Building a Mattermost Chatbot in Perl</a></h1><div class=post-meta><span class=post-date>2019-01-09 [Updated: 2019-01-09]</span></div><span class=post-tags>#<a href=https://netsplit.uk/tags/perl-5/>Perl 5</a>&nbsp;
+WebService::Mattermost (source) Final code For anyone who doesn&amp;rsquo;t want to read, here is the final product."><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=https://netsplit.uk/posts/2019/01/09/mattermost-bot/><link rel=stylesheet href=https://netsplit.uk/assets/style.css><link rel=stylesheet href=https://netsplit.uk/assets/green.css><link rel=apple-touch-icon href=https://netsplit.uk/img/apple-touch-icon-192x192.png><link rel="shortcut icon" href=https://netsplit.uk/img/favicon/green.png><meta name=twitter:card content="summary"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="og:title" content="Building a Mattermost Chatbot in Perl"><meta property="og:description" content="This article provides a brief overview of how to set up a Mattermost chatbot
+in Perl 5.
+"><meta property="og:url" content="https://netsplit.uk/posts/2019/01/09/mattermost-bot/"><meta property="og:site_name" content="netsplit"><meta property="og:image" content="https://netsplit.uk/img/favicon/green.png"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1024"><meta property="article:published_time" content="2019-01-09 17:53:11 +0000 UTC"></head><body class=green><div class="container full headings--one-size"><header class=header><div class=header__inner><div class=header__logo><a href=/><div class=logo>netsplit</div></a></div><div class=menu-trigger>menu</div></div></header><div class=content><div class=post><h1 class=post-title><a href=https://netsplit.uk/posts/2019/01/09/mattermost-bot/>Building a Mattermost Chatbot in Perl</a></h1><div class=post-meta><span class=post-date>2019-01-09 [Updated: 2019-01-09]</span></div><span class=post-tags>#<a href=https://netsplit.uk/tags/perl-5/>Perl 5</a>&nbsp;
 #<a href=https://netsplit.uk/tags/chatops/>Chatops</a>&nbsp;
 #<a href=https://netsplit.uk/tags/bot/>Bot</a>&nbsp;
 #<a href=https://netsplit.uk/tags/webservicemattermost/>WebService::Mattermost</a>&nbsp;
@@ -14,75 +15,76 @@ how to use it in a basic script, and demonstrate with a bot which greets users.<
 (<a href=https://github.com/n7st/webservice-mattermost>source</a>)</li></ul><h2 id=final-code>Final code<a href=#final-code class=hanchor arialabel=Anchor>&#8983;</a></h2><p>For anyone who doesn&rsquo;t want to read, here is the final product. You will need to
 change the authentication values in the constructor for
 <a href=https://metacpan.org/pod/WebService::Mattermost::V4::Client><code>WebService::Mattermost::V4::Client</code></a>
-to your own Mattermost server and bot user.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
-
-<span style=color:#66d9ef>use</span> strict;
-<span style=color:#66d9ef>use</span> warnings;
-
-<span style=color:#66d9ef>use</span> WebService::Mattermost::V4::Client;
-
-<span style=color:#66d9ef>my</span> $bot <span style=color:#f92672>=</span> WebService::Mattermost::V4::Client<span style=color:#f92672>-&gt;</span><span style=color:#66d9ef>new</span>({
-    username <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;MATTERMOST USERNAME HERE&#39;</span>,
-    password <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;MATTERMOST PASSWORD HERE&#39;</span>,
-    base_url <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;https://my.mattermost-server.com/api/v4/&#39;</span>,
-
-    debug <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>1</span>, <span style=color:#75715e># Show extra connection information</span>
-});
-
-<span style=color:#75715e># Triggered on every message received by the gateway</span>
-$bot<span style=color:#f92672>-&gt;</span>on(gw_message <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>sub</span> {
-    <span style=color:#66d9ef>my</span> ($bot, $args) <span style=color:#f92672>=</span> @_;
-
-    <span style=color:#75715e># Only post-like messages contain post_data</span>
-    <span style=color:#66d9ef>my</span> $message <span style=color:#f92672>=</span> $args<span style=color:#f92672>-&gt;</span>{post_data}<span style=color:#f92672>-&gt;</span>{message};
-
-    <span style=color:#66d9ef>if</span> ($message <span style=color:#f92672>&amp;&amp;</span> lc $message <span style=color:#f92672>eq</span> <span style=color:#e6db74>&#39;hello&#39;</span>) {
-        <span style=color:#75715e># Respond with a friendly greeting</span>
-        $bot<span style=color:#f92672>-&gt;</span>api<span style=color:#f92672>-&gt;</span>posts<span style=color:#f92672>-&gt;</span>create({
-            message    <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;Hi, @&#39;</span><span style=color:#f92672>.</span>$args<span style=color:#f92672>-&gt;</span>{message}<span style=color:#f92672>-&gt;</span>{data}<span style=color:#f92672>-&gt;</span>{sender_name},
-            channel_id <span style=color:#f92672>=&gt;</span> $args<span style=color:#f92672>-&gt;</span>{post_data}<span style=color:#f92672>-&gt;</span>{channel_id},
-        });
-    }
-});
-
-<span style=color:#75715e># Start the bot</span>
-$bot<span style=color:#f92672>-&gt;</span>start();
-</code></pre></div><h2 id=breakdown>Breakdown<a href=#breakdown class=hanchor arialabel=Anchor>&#8983;</a></h2><ul><li>First, as with all good Perl scripts, we need to enable strictures and
+to your own Mattermost server and bot user.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=display:flex><span><span style=color:#75715e>#!/usr/bin/env perl</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>use</span> strict;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>use</span> warnings;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>use</span> WebService::Mattermost::V4::Client;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>my</span> $bot <span style=color:#f92672>=</span> WebService::Mattermost::V4::Client<span style=color:#f92672>-&gt;</span><span style=color:#66d9ef>new</span>({
+</span></span><span style=display:flex><span>    username <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;MATTERMOST USERNAME HERE&#39;</span>,
+</span></span><span style=display:flex><span>    password <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;MATTERMOST PASSWORD HERE&#39;</span>,
+</span></span><span style=display:flex><span>    base_url <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;https://my.mattermost-server.com/api/v4/&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    debug <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>1</span>, <span style=color:#75715e># Show extra connection information</span>
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Triggered on every message received by the gateway</span>
+</span></span><span style=display:flex><span>$bot<span style=color:#f92672>-&gt;</span>on(gw_message <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>sub</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>my</span> ($bot, $args) <span style=color:#f92672>=</span> @_;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Only post-like messages contain post_data</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>my</span> $message <span style=color:#f92672>=</span> $args<span style=color:#f92672>-&gt;</span>{post_data}<span style=color:#f92672>-&gt;</span>{message};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($message <span style=color:#f92672>&amp;&amp;</span> lc $message <span style=color:#f92672>eq</span> <span style=color:#e6db74>&#39;hello&#39;</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Respond with a friendly greeting</span>
+</span></span><span style=display:flex><span>        $bot<span style=color:#f92672>-&gt;</span>api<span style=color:#f92672>-&gt;</span>posts<span style=color:#f92672>-&gt;</span>create({
+</span></span><span style=display:flex><span>            message    <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;Hi, @&#39;</span><span style=color:#f92672>.</span>$args<span style=color:#f92672>-&gt;</span>{message}<span style=color:#f92672>-&gt;</span>{data}<span style=color:#f92672>-&gt;</span>{sender_name},
+</span></span><span style=display:flex><span>            channel_id <span style=color:#f92672>=&gt;</span> $args<span style=color:#f92672>-&gt;</span>{post_data}<span style=color:#f92672>-&gt;</span>{channel_id},
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Start the bot</span>
+</span></span><span style=display:flex><span>$bot<span style=color:#f92672>-&gt;</span>start();
+</span></span></code></pre></div><h2 id=breakdown>Breakdown<a href=#breakdown class=hanchor arialabel=Anchor>&#8983;</a></h2><ul><li>First, as with all good Perl scripts, we need to enable strictures and
 warnings.</li><li>Then, we instantiate the bot class with three required configuration values:<ul><li><code>username</code>: your Mattermost username (e.g. &ldquo;<a href=mailto:mybot@myemailaddress.org>mybot@myemailaddress.org</a>&rdquo;)</li><li><code>password</code>: your Mattermost password (e.g. &ldquo;hunter2&rdquo;)</li><li><code>base_url</code>: the base URL of your Mattermost server&rsquo;s API (e.g.
-&ldquo;<a href=#>https://my.mattermost-server.com/api/v4/</a>")</li></ul></li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
-
-<span style=color:#66d9ef>use</span> strict;
-<span style=color:#66d9ef>use</span> warnings;
-
-<span style=color:#66d9ef>use</span> WebService::Mattermost::V4::Client;
-
-<span style=color:#66d9ef>my</span> $bot <span style=color:#f92672>=</span> WebService::Mattermost::V4::Client<span style=color:#f92672>-&gt;</span><span style=color:#66d9ef>new</span>({
-    username <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;MATTERMOST USERNAME HERE&#39;</span>,
-    password <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;MATTERMOST PASSWORD HERE&#39;</span>,
-    base_url <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;https://my.mattermost-server.com/api/v4/&#39;</span>,
-
-    debug <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>1</span>, <span style=color:#75715e># Show extra connection information</span>
-});
-</code></pre></div><ul><li>Next, we add a non-blocking loop which watches for messages from the gateway.</li><li>Received messages include two arguments: <code>$bot</code>, which contains our instance
+&ldquo;<a href=#>https://my.mattermost-server.com/api/v4/</a>&rdquo;)</li></ul></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=display:flex><span><span style=color:#75715e>#!/usr/bin/env perl</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>use</span> strict;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>use</span> warnings;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>use</span> WebService::Mattermost::V4::Client;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>my</span> $bot <span style=color:#f92672>=</span> WebService::Mattermost::V4::Client<span style=color:#f92672>-&gt;</span><span style=color:#66d9ef>new</span>({
+</span></span><span style=display:flex><span>    username <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;MATTERMOST USERNAME HERE&#39;</span>,
+</span></span><span style=display:flex><span>    password <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;MATTERMOST PASSWORD HERE&#39;</span>,
+</span></span><span style=display:flex><span>    base_url <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;https://my.mattermost-server.com/api/v4/&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    debug <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>1</span>, <span style=color:#75715e># Show extra connection information</span>
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><ul><li>Next, we add a non-blocking loop which watches for messages from the gateway.</li><li>Received messages include two arguments: <code>$bot</code>, which contains our instance
 of <code>WebService::Mattermost::V4::Client</code>, and <code>$args</code>, which contains the
-message from the gateway.</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e># Triggered on every message received by the gateway</span>
-$bot<span style=color:#f92672>-&gt;</span>on(gw_message <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>sub</span> {
-    <span style=color:#66d9ef>my</span> ($bot, $args) <span style=color:#f92672>=</span> @_;
-
-    <span style=color:#75715e># Only post-like messages contain post_data</span>
-    <span style=color:#66d9ef>my</span> $message <span style=color:#f92672>=</span> $args<span style=color:#f92672>-&gt;</span>{post_data}<span style=color:#f92672>-&gt;</span>{message};
-
-    <span style=color:#66d9ef>if</span> ($message <span style=color:#f92672>&amp;&amp;</span> lc $message <span style=color:#f92672>eq</span> <span style=color:#e6db74>&#39;hello&#39;</span>) {
-        <span style=color:#75715e># Respond with a friendly greeting</span>
-        $bot<span style=color:#f92672>-&gt;</span>api<span style=color:#f92672>-&gt;</span>posts<span style=color:#f92672>-&gt;</span>create({
-            message    <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;Hi, @&#39;</span><span style=color:#f92672>.</span>$args<span style=color:#f92672>-&gt;</span>{message}<span style=color:#f92672>-&gt;</span>{data}<span style=color:#f92672>-&gt;</span>{sender_name},
-            channel_id <span style=color:#f92672>=&gt;</span> $args<span style=color:#f92672>-&gt;</span>{post_data}<span style=color:#f92672>-&gt;</span>{channel_id},
-        });
-    }
-});
-</code></pre></div><ul><li>Finally, we start the bot.</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl>$bot<span style=color:#f92672>-&gt;</span>start();
-</code></pre></div><h2 id=extending>Extending<a href=#extending class=hanchor arialabel=Anchor>&#8983;</a></h2><p>In the bot&rsquo;s event loops, there are some additional utilites, accessible through
+message from the gateway.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=display:flex><span><span style=color:#75715e># Triggered on every message received by the gateway</span>
+</span></span><span style=display:flex><span>$bot<span style=color:#f92672>-&gt;</span>on(gw_message <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>sub</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>my</span> ($bot, $args) <span style=color:#f92672>=</span> @_;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Only post-like messages contain post_data</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>my</span> $message <span style=color:#f92672>=</span> $args<span style=color:#f92672>-&gt;</span>{post_data}<span style=color:#f92672>-&gt;</span>{message};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($message <span style=color:#f92672>&amp;&amp;</span> lc $message <span style=color:#f92672>eq</span> <span style=color:#e6db74>&#39;hello&#39;</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Respond with a friendly greeting</span>
+</span></span><span style=display:flex><span>        $bot<span style=color:#f92672>-&gt;</span>api<span style=color:#f92672>-&gt;</span>posts<span style=color:#f92672>-&gt;</span>create({
+</span></span><span style=display:flex><span>            message    <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;Hi, @&#39;</span><span style=color:#f92672>.</span>$args<span style=color:#f92672>-&gt;</span>{message}<span style=color:#f92672>-&gt;</span>{data}<span style=color:#f92672>-&gt;</span>{sender_name},
+</span></span><span style=display:flex><span>            channel_id <span style=color:#f92672>=&gt;</span> $args<span style=color:#f92672>-&gt;</span>{post_data}<span style=color:#f92672>-&gt;</span>{channel_id},
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><ul><li>Finally, we start the bot.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=display:flex><span>$bot<span style=color:#f92672>-&gt;</span>start();
+</span></span></code></pre></div><h2 id=extending>Extending<a href=#extending class=hanchor arialabel=Anchor>&#8983;</a></h2><p>In the bot&rsquo;s event loops, there are some additional utilites, accessible through
 the <code>bot</code> argument:</p><ul><li><code>$bot->api</code>: a full Mattermost API integration
 (<a href=https://metacpan.org/pod/WebService::Mattermost::V4::API>WebService::Mattermost::V4::API</a>)</li><li><code>$bot->ua</code>: an instance of <a href=https://metacpan.org/pod/Mojo::UserAgent>Mojo::UserAgent</a></li><li><code>$bot->logger</code>: an instance of <a href=https://metacpan.org/pod/Mojo::Log>Mojo::Log</a></li></ul></div></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://netsplit.uk/posts/2019/02/13/remote_proxmox_lab_intro/><span class=button__icon>←</span>
 <span class=button__text>Remote Lab, Part 1: Pre-Installation Configuration</span></a></span></div></div></div></div><footer class=footer><div class=footer__inner><div class=copyright><span>© 2022 Powered by <a href=http://gohugo.io>Hugo</a></span>
-<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span></div></div></footer><script src=https://netsplit.uk/assets/main.js></script><script src=https://netsplit.uk/assets/prism.js></script></div></body></html>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span></div></div></footer><script src=https://netsplit.uk/assets/main.js></script>
+<script src=https://netsplit.uk/assets/prism.js></script></div></body></html>
