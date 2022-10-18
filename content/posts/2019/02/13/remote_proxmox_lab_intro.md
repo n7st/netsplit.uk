@@ -136,7 +136,7 @@ For the rest of the guide, I will use the following (made up) examples:
 Gateway addresses for OVH IP addresses are the address, but with the last octet
 changed to `254`. This means that our primary IP address (ex. `5.39.50.60`)
 becomes `5.39.50.254`. This is documented in greater detail
-[here](https://docs.ovh.com/gb/en/dedicated/network-bridging/#determine-the-gateway-address).
+[in the OVH network bridge documentation](https://docs.ovh.com/gb/en/dedicated/network-bridging/#determine-the-gateway-address).
 
 ### Subdomain configuration
 
