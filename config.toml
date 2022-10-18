@@ -31,6 +31,7 @@ paginate = 5
     centerTheme = false
     enableGitInfo = true
     showLastUpdated = true
+    copyrightStartYear = 2010
 
 [languages]
     [languages.en]
