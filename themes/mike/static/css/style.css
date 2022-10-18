@@ -1,5 +1,8 @@
 :root {
+  --light-grey: hsla(0, 0%, 80%, 1);
   --dark-grey: hsla(0, 0%, 20%, 1);
+  --dark-green: hsla(136, 100%, 25%, 1);
+  --darker-green: hsla(136, 100%, 20%, 1);
 }
 
 body {
@@ -14,6 +17,20 @@ h1,
 h2,
 h3 {
   line-height: 1.2;
+}
+
+a {
+  color: var(--dark-green);
+}
+
+a:visited {
+  color: var(--darker-green);
+}
+
+blockquote {
+  border-left: 5px solid var(--light-grey);
+  margin-left: 0;
+  padding-left: 1em;
 }
 
 nav ul {
