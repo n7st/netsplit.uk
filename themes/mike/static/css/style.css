@@ -1,0 +1,50 @@
+:root {
+  --dark-grey: hsla(0, 0%, 20%, 1);
+}
+
+body {
+  color: var(--dark-grey);
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 1em;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+nav ul {
+  display: inline;
+  list-style-type: none;
+  padding: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  nav ul li {
+    display: inline;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table,
+td,
+th {
+  border: 1px solid var(--dark-grey);
+}
+
+td,
+th {
+  padding: 1em;
+}
+
+pre {
+  /* Make code blocks behave more nicely on mobile */
+  overflow-y: scroll;
+}

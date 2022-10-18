@@ -18,7 +18,7 @@ Now, we'll need to install Proxmox on the server. I won't cover the basic
 installation in this post, but I am using Proxmox VE 5, which is available as a
 template during installation with OVH's wizard.
 
-### Securing Proxmox's web interface
+## Securing Proxmox's web interface
 
 Once you have installed your hypervisor and logged in, I recommend taking a
 couple of extra steps to improve security, because the web interface is public
@@ -33,7 +33,7 @@ facing:
    `certbot` look good, too).
 4. Disable password authentication over SSH and use key authentication instead.
 
-### Disabling the enterprise APT repository
+## Disabling the enterprise APT repository
 
 Unless you have a Proxmox subscription, `apt` will fail with an exit code of 100.
 This is because it is trying to read from the subscription-only enterprise APT
@@ -60,9 +60,9 @@ deb http://security.debian.org bullseye-security main contrib
 deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 ```
 
-See [here](https://pve.proxmox.com/wiki/Package_Repositories) for more information.
+See [the Proxmox package repository guide](https://pve.proxmox.com/wiki/Package_Repositories) for more information.
 
-### Network bridges
+## Network bridges
 
 For the most basic setup, three network bridges are required (which will become
 the WAN, LAN and OPT1 interfaces in our router). These are configured in the
@@ -74,7 +74,7 @@ host node's network settings.
 | vmbr1 | Linux bridge | dummy0       | (none)                              | (none)        | (none)                                    |
 | vmbr2 | Linux bridge | dummy1       | (none)                              | (none)        | (none)                                    |
 
-### Virtual hardware for pfSense
+## Virtual hardware for pfSense
 
 Below are the current specifications for my router's virtual hardware. Your
 mileage may vary.
@@ -91,4 +91,3 @@ mileage may vary.
 In the next part, we'll install pfSense and configure the basic interfaces.
 
 *[Read part 3](/posts/2019/02/17/installing_pfsense)*
-
