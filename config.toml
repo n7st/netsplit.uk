@@ -24,22 +24,5 @@ paginate = 8
     unsafe = true # Allow HTML in md files
 
 [params]
-    description = "Software development and systems engineering"
-    contentTypeName = "post"
-    enableGitInfo = true
-    showLastUpdated = true
-    copyrightStartYear = 2010
-
-[languages]
-    [languages.en]
-        languageName = "English"
-        title = "netsplit"
-        subtitle = ""
-        owner = ""
-        keywords = ""
-        copyright = ""
-        menuMore = "Show more"
-        readMore = "Read more"
-        readOtherPosts = "Read other posts"
-        missingContentMessage = "Page not found"
-        missingBackButtonLabel = "Back to homepage"
+  description = "Software development and systems engineering"
+  copyrightStartYear = 2010
