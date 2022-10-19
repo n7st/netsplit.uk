@@ -2,22 +2,6 @@
   <article>
     <h1>{{ .Title | markdownify }}</h1>
 
-    <p>This article was originally posted on {{ .Date.Format "Monday, January 2, 2006" }}.</p>
-
-    {{ .Content | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" ariaLabel="Anchor">&#8983;</a> ${3}` | safeHTML }}
+    {{ .Content }}
   </article>
-
-  {{ if .Params.tags }}
-    <aside>
-      <h2>Tags</h2>
-
-      <ul>
-        {{ range .Params.tags }}
-          <li>
-            <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
-          </li>
-        {{ end }}
-      </ul>
-    </aside>
-  {{ end }}
 {{ end }}
