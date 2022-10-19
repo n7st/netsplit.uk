@@ -1,0 +1,33 @@
+{{ define "main" }}
+  <article>
+    <h1>{{ .Title | markdownify }}</h1>
+
+    {{ if (.Params.Toc | default .Site.Params.Toc) }}
+      <aside>
+        <h2>
+          {{ (.Params.TocTitle | default .Site.Params.TocTitle) | default "Table of Contents" }}
+        </h2>
+
+        {{ .TableOfContents }}
+      <aside>
+    {{ end }}
+
+    <p>This article was originally posted on {{ .Date.Format "Monday, January 2, 2006" }}.</p>
+
+    {{ .Content | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1} <a href="#${2}" aria-label="Link to this heading">&#8983;</a> ${3}` | safeHTML }}
+  </article>
+
+  {{ if .Params.tags }}
+    <aside>
+      <h2>Tags</h2>
+
+      <ul>
+        {{ range .Params.tags }}
+          <li>
+            <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </aside>
+  {{ end }}
+{{ end }}

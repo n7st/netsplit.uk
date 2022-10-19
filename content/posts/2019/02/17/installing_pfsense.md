@@ -25,7 +25,7 @@ the web interface, where the configuration will be finalised.
 * Assign vtnet1 (or em1) as the LAN interface.
 * Press 2 to set the WAN interface's IP address.
 
-<table class="table table-bordered">
+<table>
     <colgroup>
         <col style="width: 50%">
         <col style="width: 50%">
@@ -163,9 +163,11 @@ in order to whitelist a management IP address.
 
 ## Disable hardware checksum offload
 
->Checksum offloading is broken in some hardware, particularly some Realtek cards.
- Rarely, drivers may have problems with checksum offloading and some specific NICs.
- This will take effect after a machine reboot or re-configure of each interface.
+<blockquote cite="https://docs.netgate.com/pfsense/en/latest/config/advanced-networking.html#hardware-checksum-offloading">
+  Checksum offloading is broken in some hardware, particularly some Realtek cards.
+  Rarely, drivers may have problems with checksum offloading and some specific NICs.
+  This will take effect after a machine reboot or re-configure of each interface.
+</blockquote>
 
 The network cards in SoYouStart machines do not appear to support hardware
 checksum offloading (this may need confirming from other sources, but the card

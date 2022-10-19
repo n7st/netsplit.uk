@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <section>
+    <h1>Posts</h1>
+
+    {{ range .Paginator.Pages }}
+      <section>
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Description }}</p>
+      </section>
+    {{ end }}
+
+    {{ partial "pagination.html" . }}
+  </section>
+{{ end }}

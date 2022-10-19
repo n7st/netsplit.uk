@@ -1,36 +1,28 @@
 baseURL = "https://netsplit.uk"
 languageCode = "en-gb"
 title = "netsplit"
-theme = "terminal"
+theme = "mike"
 
-paginate = 5
+paginate = 8
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = false
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'trac'
+    tabWidth = 4
+  [markup.goldmark.renderer]
+    unsafe = true # Allow HTML in md files
 
 [params]
-    description = "Software development and systems engineering"
-    contentTypeName = "post"
-    themeColor = "green"
-    showMenuItems = 2
-    showLanguageSelector = false
-    fullWidthTheme = true
-    centerTheme = false
-    enableGitInfo = true
-    showLastUpdated = true
-
-[languages]
-    [languages.en]
-        languageName = "English"
-        title = "netsplit"
-        subtitle = ""
-        owner = ""
-        keywords = ""
-        copyright = ""
-        menuMore = "Show more"
-        readMore = "Read more"
-        readOtherPosts = "Read other posts"
-        missingContentMessage = "Page not found"
-        missingBackButtonLabel = "Back to homepage"
-
-        [languages.en.params.logo]
-            logoText = "netsplit"
-            logoHomeLink = "/"
-
+  description = "Software development and systems engineering"
+  copyrightStartYear = 2010
