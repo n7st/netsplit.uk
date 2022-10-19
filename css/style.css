@@ -1,0 +1,77 @@
+:root {
+  --light-grey: hsla(0, 0%, 80%, 1);
+  --dark-grey: hsla(0, 0%, 20%, 1);
+  --dark-green: hsla(136, 100%, 25%, 1);
+  --darker-green: hsla(136, 100%, 20%, 1);
+}
+
+body {
+  color: var(--dark-grey);
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 1em;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+a {
+  color: var(--dark-green);
+}
+
+a:visited {
+  color: var(--darker-green);
+}
+
+blockquote {
+  border-left: 5px solid var(--light-grey);
+  margin-left: 0;
+  padding-left: 1em;
+}
+
+header nav ul {
+  display: inline;
+  list-style-type: none;
+  padding: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  header nav ul li {
+    display: inline;
+    padding-left: 8px;
+  }
+
+  header nav ul li:first-child {
+    padding-left: 0;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table,
+td,
+th {
+  border: 1px solid var(--dark-grey);
+}
+
+td,
+th {
+  padding: 1em;
+}
+
+pre {
+  /* Make code blocks behave more nicely on mobile */
+  overflow-y: scroll;
+}
