@@ -4,7 +4,7 @@
       {{ if .Paginator.HasPrev }}
         <li><a href="{{ .Paginator.Prev.URL }}" aria-label="Go to previous page">Previous</a></li>
       {{ else }}
-        <li class="disabled">Previous</li>
+        <li class="disabled" aria-disabled="true">Previous</li>
       {{ end }}
   
       {{ range .Paginator.Pagers }}
@@ -14,7 +14,7 @@
       {{ if .Paginator.HasNext }}
         <li><a href="{{ .Paginator.Next.URL }}" aria-label="Go to next page">Next</a></li>
       {{ else }}
-        <li class="disabled">Next</li>
+        <li class="disabled" aria-disabled="true">Next</li>
       {{ end }}
     </ul>
   </nav>
