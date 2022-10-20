@@ -1,5 +1,6 @@
 :root {
   --light-grey: hsla(0, 0%, 80%, 1);
+  --medium-grey: hsla(0, 0%, 45%, 1);
   --dark-grey: hsla(0, 0%, 20%, 1);
   --dark-green: hsla(136, 100%, 25%, 1);
   --darker-green: hsla(136, 100%, 20%, 1);
@@ -32,25 +33,32 @@ a:visited {
   color: var(--darker-green);
 }
 
+.disabled {
+  color: var(--medium-grey);
+}
+
 blockquote {
   border-left: 5px solid var(--light-grey);
   margin-left: 0;
   padding-left: 1em;
 }
 
-header nav ul {
+header nav ul,
+nav.pagination ul {
   display: inline;
   list-style-type: none;
   padding: 0;
 }
 
 @media only screen and (min-width: 600px) {
-  header nav ul li {
+  header nav ul li,
+  nav.pagination ul li {
     display: inline;
     padding-left: 8px;
   }
 
-  header nav ul li:first-child {
+  header nav ul li:first-child,
+  nav.pagination ul li:first-child {
     padding-left: 0;
   }
 }
