@@ -1,16 +1,20 @@
 {{ if or .Paginator.HasNext .Paginator.HasPrev }}
-  <nav aria-label="Pagination navigation">
+  <nav aria-label="Pagination navigation" class="pagination">
     <ul>
       {{ if .Paginator.HasPrev }}
         <li><a href="{{ .Paginator.Prev.URL }}" aria-label="Go to previous page">Previous</a></li>
+      {{ else }}
+        <li class="disabled" aria-disabled="true">Previous</li>
       {{ end }}
   
       {{ range .Paginator.Pagers }}
-        <li><a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
+        <li><a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">Page {{ .PageNumber }}</a></li>
       {{ end }}
   
       {{ if .Paginator.HasNext }}
         <li><a href="{{ .Paginator.Next.URL }}" aria-label="Go to next page">Next</a></li>
+      {{ else }}
+        <li class="disabled" aria-disabled="true">Next</li>
       {{ end }}
     </ul>
   </nav>
