@@ -7,6 +7,11 @@ toc: true
 description: |
   This is a guide on how to set up a remote "lab" with multiple IP addresses on an OVH server using Proxmox and
   pfSense.
+aliases:
+  - /posts/2019/02/13/remote_proxmox_lab_intro/
+  - /posts/2019/02/13/configuring_proxmox/
+  - /posts/2019/02/17/installing_pfsense/
+  - /posts/2020/01/11/configuring_pfsense/
 ---
 
 ## Introduction
