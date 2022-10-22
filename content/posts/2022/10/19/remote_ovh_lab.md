@@ -123,8 +123,8 @@ additional IP addresses are identical.
 | Name         | IP address | MAC address       | Description                                                |
 | :----------- | :--------- | :---------------- | :--------------------------------------------------------- |
 | Primary      | 5.39.50.60 | (none)            | The address that was originally supplied with your server  |
-| Additional 1 | 5.39.50.70 | 01:01:01:e4:44:44 | The IP address you'll use for pfSense's LAN interface      |
-| Additional 2 | 5.39.50.71 | 01:01:01:e4:44:44 | The IP address you'll assign to your first virtual machine |
+| Additional 1 | 5.39.50.70 | 02:01:01:e4:44:44 | The IP address you'll use for pfSense's LAN interface      |
+| Additional 2 | 5.39.50.71 | 02:01:01:e4:44:44 | The IP address you'll assign to your first virtual machine |
 
 </div>
 
