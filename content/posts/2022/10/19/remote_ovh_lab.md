@@ -1,12 +1,12 @@
 ---
-title: 'Build a remote Proxmox and pfSense lab on an OVH dedicated server'
+title: 'How to build a remote Proxmox and pfSense lab on an OVH dedicated server'
 date: 2022-10-19T16:22:14Z
 type: post
 tags: [ 'Remote Lab', 'OVH', 'Networking', 'Systems' ]
 toc: true
 description: |
-  This is a guide on how to set up a remote "lab" with multiple IP addresses on an OVH server using Proxmox and
-  pfSense.
+  This is a guide on how to set up a remote "lab" with multiple IP addresses on an OVH dedicated server using Proxmox and
+  a pfSense router.
 aliases:
   - /posts/2019/02/13/remote_proxmox_lab_intro/
   - /posts/2019/02/13/configuring_proxmox/
@@ -21,7 +21,7 @@ including basic firewall rules for managing access to the router's web interface
 for SSL certificates.
 
 It was previously split into four parts which were written in 2019, but has now been consolidated into one post for readability
-and updated to still be valid in 2022.
+and updated to still be valid in 2022 after OVH merged SoYouStart into its main control panel.
 
 ### Why?
 
@@ -37,7 +37,7 @@ There are some benefits to setting up a dedicated server in this manner.
 
 The main drawback to this approach is that you'll end up with a single large dedicated server which contains many
 services. This makes managing downtime (for example for software updates) quite difficult. You're also putting all your
-eggs in one basket, so make sure your configuration and data is set up in case there's a disaster in the data centre.
+eggs in one basket, so make sure your configuration and data is backed up in case there's a disaster in the data centre.
 
 All things considered, I'm still running a machine set up in this fashion after three years. It's been very stable and
 quite low maintenance.
@@ -152,10 +152,10 @@ Once you have installed your hypervisor and logged in, I recommend taking a coup
 because the web interface is public facing:
 
 1. Set up your own administrative user and disable the default one.
-2. Set up two-factor authentication. I followed [this guide](http://jonspraggins.com/the-idiot-adds-two-factor-authentication-to-proxmox/).
-3. Get a valid SSL certificate. I followed [this guide](https://pve.proxmox.com/wiki/HTTPS_Certificate_Configuration_(Version_4.x_and_newer)#Let.27s_Encrypt_using_acme.sh)
+1. Set up two-factor authentication. I followed [this guide](http://jonspraggins.com/the-idiot-adds-two-factor-authentication-to-proxmox/).
+1. Get a valid SSL certificate. I followed [this guide](https://pve.proxmox.com/wiki/HTTPS_Certificate_Configuration_(Version_4.x_and_newer)#Let.27s_Encrypt_using_acme.sh)
    to get a certificate from Let's Encrypt using `acme.sh` (but the steps using `certbot` look good, too).
-4. Disable password authentication over SSH and use key authentication instead.
+1. Disable password authentication over SSH and use key authentication instead.
 
 ### Disabling the enterprise APT repository
 
@@ -345,7 +345,8 @@ in order to whitelist a management IP address.
 ### Configuring the LAN and OPT1 interfaces
 
 * The LAN interface should be static IPv4 with an IPv4 address of `192.168.1.1/24` (or another sensible reserved range,
-  documented [here](https://en.wikipedia.org/wiki/Reserved_IP_addresses)). There should not be an upstream gateway.
+  documented [on Wikipedia's "Reserved IP addresses" page](https://en.wikipedia.org/wiki/Reserved_IP_addresses)). There
+  should not be an upstream gateway.
 * The OPT1 interface should be static IPv4 with an IPv4 address of `10.5.4.1/24` (or, as above, another sensible
   reserved range). There should not be an upstream gateway.
 
@@ -412,7 +413,7 @@ For this example, the VM installed requires HTTP and HTTPS traffic to be allowed
 rules on the WAN device.
 
 1. From the "Firewall" menu, select "Rules".
-2. Add two rules:
+1. Add two rules:
     * HTTPS:
         - Action: "Pass"
         - Interface: "WAN"
@@ -436,3 +437,9 @@ rules on the WAN device.
 
 Further similar rules can be added for any other ports that need to be accessible from the WAN.
 
+## Growing
+
+Not every extra virtual machine will require its own public IP address. It is worth considering if you can provide
+public access to services via another means, for example you could have a single webserver which provides proxies to
+web services running in virtual machines without a public IP address. If you're running a database server, it's
+likely that only other machines on your private network will need access to it.

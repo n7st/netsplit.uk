@@ -1,5 +1,5 @@
 ---
-title: "Building a Mattermost Chatbot in Perl"
+title: "How to build a Mattermost Chatbot in Perl"
 date: 2019-01-09T17:53:11Z
 draft: false
 type: post
