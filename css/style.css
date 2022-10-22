@@ -79,12 +79,8 @@ th {
   padding: 1em;
 }
 
+div.table-wrapper,
 pre {
-  /* Make code blocks behave more nicely on mobile */
+  /* Make code blocks and tables behave more nicely on mobile */
   overflow-y: scroll;
-}
-
-div.table-wrapper {
-  overflow-y: scroll;
-  width: 100%;
 }
