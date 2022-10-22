@@ -118,11 +118,15 @@ IP addresses added to the environment should also be configured with the same vi
 For the rest of the guide, I'll use the following made up example IP addresses. Note that the MAC addresses for the
 additional IP addresses are identical.
 
+<div class="table-wrapper">
+
 | Name         | IP address | MAC address       | Description                                                |
 | :----------- | :--------- | :---------------- | :--------------------------------------------------------- |
 | Primary      | 5.39.50.60 | (none)            | The address that was originally supplied with your server  |
 | Additional 1 | 5.39.50.70 | 01:01:01:e4:44:44 | The IP address you'll use for pfSense's LAN interface      |
 | Additional 2 | 5.39.50.71 | 01:01:01:e4:44:44 | The IP address you'll assign to your first virtual machine |
+
+</div>
 
 ### OVH gateway IP addresses
 
@@ -135,11 +139,15 @@ primary IP address (ex. `5.39.50.60`) becomes `5.39.50.254`. This is documented 
 Later, you will need subdomains for memorable access to the services you're configuring. Add some A records using your
 DNS manager (replacing my example names and addresses).
 
+<div class="table-wrapper">
+
 | Type  | Name                | IP address | Description                                            |
 | :---- | :------------------ | :--------- | :----------------------------------------------------- |
 | A     | proxmox.example.com | 5.39.50.60 | Will be used to access Proxmox's web interface         |
 | A     | pf.example.com      | 5.39.50.70 | Will be used to access pfSense's web interface         |
 | A     | vm.example.com      | 5.39.50.71 | Will be used for public access to your virtual machine |
+
+</div>
 
 ## Configuring Proxmox
 
@@ -189,16 +197,22 @@ For the most basic setup, three network bridges are required (which will become
 the WAN, LAN and OPT1 interfaces in our router). These are configured in the
 host node's network settings.
 
+<div class="table-wrapper">
+
 | Name  | Type         | Ports/Slaves | IP address                          | Subnet mask   | Gateway                                   |
 |-------|--------------|--------------|-------------------------------------|---------------|-------------------------------------------|
 | vmbr0 | Linux bridge | eth0         | Primary IP address (ex. 5.39.50.60) | 255.255.255.0 | Primary gateway address (ex. 5.39.50.254) |
 | vmbr1 | Linux bridge | dummy0       | (none)                              | (none)        | (none)                                    |
 | vmbr2 | Linux bridge | dummy1       | (none)                              | (none)        | (none)                                    |
 
+</div>
+
 ### Virtual hardware for pfSense
 
 Below are the current specifications for my router's virtual hardware. Your
 mileage may vary.
+
+<div class="table-wrapper">
 
 | Item             | Value                    | Notes                                                                                                |
 |------------------|--------------------------|------------------------------------------------------------------------------------------------------|
@@ -208,6 +222,8 @@ mileage may vary.
 | Network Device 1 | vmbr0, VirtIO (or E1000) | This will be used as the WAN interface                                                               |
 | Network Device 2 | vmbr1, VirtIO (or E1000) | This will be used as the LAN interface                                                               |
 | Network Device 3 | vmbr2, VirtIO (or E1000) | This will be used as the OPT1 interface                                                              |
+
+</div>
 
 ## Installing pfSense
 
@@ -222,43 +238,45 @@ configuration will be finalised.
 * Assign vtnet1 (or em1) as the LAN interface.
 * Press 2 to set the WAN interface's IP address.
 
-<table>
-    <colgroup>
-        <col style="width: 50%">
-        <col style="width: 50%">
-    </colgroup>
-    <thead>
-        <tr>
-            <th colspan="2">Temporary WAN interface configuration</th>
-        </tr>
-        <tr>
-            <th align="left">Value</th>
-            <th align="left">Option</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="left">Configure IPv4 address WAN interface via DHCP? (y/n)</td>
-            <td align="left">n</td>
-        </tr>
-        <tr>
-            <td align="left">Enter the new WAN IPv4 subnet bit count (1 to 31)</td>
-            <td align="left">31 (this will be changed from the GUI)</td>
-        </tr>
-        <tr>
-            <td align="left">For a WAN, enter the new WAN IPv4 upstream gateway address.</td>
-            <td align="left">(nothing)</td>
-        </tr>
-        <tr>
-            <td align="left">Configure IPv6 address WAN interface via DHCP6? (y/n)</td>
-            <td align="left">y (you can fix this later)</td>
-        </tr>
-        <tr>
-            <td align="left">Do you want to revert to HTTP as the webConfigurator protocol? (y/n)</td>
-            <td align="left">n</td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-wrapper">
+    <table>
+        <colgroup>
+            <col style="width: 50%">
+            <col style="width: 50%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th colspan="2">Temporary WAN interface configuration</th>
+            </tr>
+            <tr>
+                <th align="left">Value</th>
+                <th align="left">Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="left">Configure IPv4 address WAN interface via DHCP? (y/n)</td>
+                <td align="left">n</td>
+            </tr>
+            <tr>
+                <td align="left">Enter the new WAN IPv4 subnet bit count (1 to 31)</td>
+                <td align="left">31 (this will be changed from the GUI)</td>
+            </tr>
+            <tr>
+                <td align="left">For a WAN, enter the new WAN IPv4 upstream gateway address.</td>
+                <td align="left">(nothing)</td>
+            </tr>
+            <tr>
+                <td align="left">Configure IPv6 address WAN interface via DHCP6? (y/n)</td>
+                <td align="left">y (you can fix this later)</td>
+            </tr>
+            <tr>
+                <td align="left">Do you want to revert to HTTP as the webConfigurator protocol? (y/n)</td>
+                <td align="left">n</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 Next, you need to set up a temporary route to give yourself access to the web interface.
 

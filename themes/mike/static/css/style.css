@@ -83,3 +83,8 @@ pre {
   /* Make code blocks behave more nicely on mobile */
   overflow-y: scroll;
 }
+
+div.table-wrapper {
+  overflow-y: scroll;
+  width: 100%;
+}
