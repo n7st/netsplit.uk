@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <section>
+    <h1>{{ .Title }}</h1>
+
+    {{ range .Paginator.Pages }}
+      {{ partial "post_preview.html" . }}
+    {{ end }}
+
+    {{ partial "pagination.html" }}
+  </section>
+{{ end }}

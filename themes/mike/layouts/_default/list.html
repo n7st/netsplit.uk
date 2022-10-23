@@ -5,10 +5,7 @@
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
 
     {{ range $paginator.Pages }}
-      <section>
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <p>{{ .Description }}</p>
-      </section>
+      {{ partial "post_preview.html" . }}
     {{ end }}
 
     {{ partial "pagination.html" . }}
