@@ -2,7 +2,7 @@
 title: 'How to build a remote Proxmox and pfSense lab on an OVH dedicated server'
 date: 2022-10-19T16:22:14Z
 type: post
-tags: [ 'Remote Lab', 'OVH', 'Networking', 'Systems' ]
+tags: [ 'Remote Lab', 'OVH', 'Networking', 'Systems', 'Tutorial' ]
 toc: true
 description: |
   This is a guide on how to set up a remote "lab" with multiple IP addresses on an OVH dedicated server using Proxmox and
