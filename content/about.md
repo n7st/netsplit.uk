@@ -1,6 +1,8 @@
 ---
 title: About
 type: page
+description: About this website.
+date: 2022-10-19T17:08:19Z
 ---
 
 ## Content
