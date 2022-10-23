@@ -7,7 +7,7 @@ date: 2022-10-19T17:08:19Z
 
 ## Content
 
-Posts on this website are written by [Mike Jones](https://github.com/n7st) and it serves as a dumping ground for how-to
+Posts on this website are written by [Mike Jones](https://github.com/n7st). It serves as a dumping ground for how-to
 guides I've written which are probably only useful to me.
 
 Please feel free to submit content corrections by raising an issue or opening a pull request on the website's
