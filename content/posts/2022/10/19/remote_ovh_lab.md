@@ -260,7 +260,7 @@ configuration will be finalised.
             </tr>
             <tr>
                 <td align="left">Enter the new WAN IPv4 subnet bit count (1 to 31)</td>
-                <td align="left">31 (this will be changed from the GUI)</td>
+                <td align="left">31 (this will later be changed to 32 from the GUI)</td>
             </tr>
             <tr>
                 <td align="left">For a WAN, enter the new WAN IPv4 upstream gateway address.</td>
