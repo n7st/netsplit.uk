@@ -200,7 +200,7 @@ host node's network settings.
 <div class="table-wrapper">
 
 | Name  | Type         | Ports/Slaves | IP address                          | Subnet mask   | Gateway                                   |
-|-------|--------------|--------------|-------------------------------------|---------------|-------------------------------------------|
+| :---- | :----------- | :----------- | :---------------------------------- | :------------ | :---------------------------------------- |
 | vmbr0 | Linux bridge | eth0         | Primary IP address (ex. 5.39.50.60) | 255.255.255.0 | Primary gateway address (ex. 5.39.50.254) |
 | vmbr1 | Linux bridge | dummy0       | (none)                              | (none)        | (none)                                    |
 | vmbr2 | Linux bridge | dummy1       | (none)                              | (none)        | (none)                                    |
@@ -215,7 +215,7 @@ mileage may vary.
 <div class="table-wrapper">
 
 | Item             | Value                    | Notes                                                                                                |
-|------------------|--------------------------|------------------------------------------------------------------------------------------------------|
+| :--------------- | :----------------------- | :--------------------------------------------------------------------------------------------------- |
 | CPU              | 2 vCPUs                  | A type of "host" (for host-passthrough) is required if you would like to use AES-NI CPU cryptography |
 | RAM              | 4G                       |                                                                                                      |
 | Storage          | 32G                      | I am using a VirtIO disk                                                                             |
