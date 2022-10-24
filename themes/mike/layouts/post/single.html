@@ -7,7 +7,7 @@
     {{ if (.Params.Toc | default .Site.Params.Toc) }}
       <aside>
         <h2>
-          {{ (.Params.TocTitle | default .Site.Params.TocTitle) | default "Table of Contents" }}
+          {{ (.Params.TocTitle | default .Site.Params.TocTitle) | default "Table of contents" }}
         </h2>
 
         {{ .TableOfContents }}
