@@ -19,4 +19,4 @@ This website is built with [Hugo](https://gohugo.io), HTML5 and is JavaScript-fr
 Its design is kept simple on purpose in an attempt to follow principles set out by ["Better Motherfucking Website"](http://bettermotherfuckingwebsite.com/),
 and earlier ["Motherfucking Website"](https://motherfuckingwebsite.com).
 
-Currently, the website is automatically deployed to [GitHub Pages](https://pages.github.com/) via[GitHub Actions](https://github.com/features/actions).
+Currently, the website is automatically deployed to [GitHub Pages](https://pages.github.com/) via [GitHub Actions](https://github.com/features/actions).
