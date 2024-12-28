@@ -459,5 +459,5 @@ Further similar rules can be added for any other ports that need to be accessibl
 
 Not every extra virtual machine will require its own public IP address. It is worth considering if you can provide
 public access to services via another means, for example you could have a single webserver which provides proxies to
-web services running in virtual machines without a public IP address. If you're running a database server, for exmaple,
+web services running in virtual machines without a public IP address. If you're running a database server, for example,
 it's likely that only other machines on your private network will need access to it.
