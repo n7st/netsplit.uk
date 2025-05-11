@@ -74,10 +74,10 @@ In OPNsense, TFTP booting can be configured on a per-MAC address basis in the
 static DHCP mapping which was set up in the last step. It is hidden under an
 advanced menu (Advanced - Show TFTP configuration).
 
-| Form field        | Value                                             |
-| :---------------- | :------------------------------------------------ |
-| Set TFTP hostname | <the IP address or hostname of your Raspberry Pi> |
-| Set bootfile      | `/srv/tftp/term41.default.loads`                  |
+| Form field        | Value                                               |
+| :---------------- | :-------------------------------------------------- |
+| Set TFTP hostname | `<the IP address or hostname of your Raspberry Pi>` |
+| Set bootfile      | `/srv/tftp/term41.default.loads`                    |
 
 The bootfile is automatically placed in the correct location by the Ansible
 playbook, so this path should always be the same.
