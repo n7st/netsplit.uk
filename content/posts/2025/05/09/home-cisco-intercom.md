@@ -40,7 +40,7 @@ decided that Ansible would be a good fit for managing the configuration for the
 various services involved in the system.
 
 If you would like to set up your own intercom system, it is available
-[here](https://git.taula.org/mike/ansible-asterisk-cisco-intercom).
+[here](https://codeberg.org/n7st/ansible-asterisk-cisco-intercom/src/).
 
 ### Prerequisites
 
